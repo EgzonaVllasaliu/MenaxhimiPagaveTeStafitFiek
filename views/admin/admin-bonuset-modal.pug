@@ -1,0 +1,40 @@
+#adminBonusModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title Bonus
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span.modal-title(aria-hidden='true') &times;
+            .modal-body
+                .row
+                    .col
+                        label(for='oretShtese') Orët shtesë
+                        input.form-control(type='text' id='oretShtese' placeholder='')
+                    .col
+                        label(for='pagesaPerOreShtese') Pagesa për orët shtesë
+                        input.form-control(type='text' id='pagesaPerOreShtese' placeholder='')
+                .row
+                    .col
+                        label(for='orePuneNeJave') Orë pune në javë
+                        input.form-control(type='text' id='orePuneNeJave' placeholder='')
+                    .col
+                        label(for='pagesaPerOrePune') Pagesa për orë pune
+                        input.form-control(type='text' id='pagesaPerOrePune' placeholder='')
+                .row
+                    .col
+                        label(for='temeDiplome') Temë diplome
+                        input.form-control(type='text' id='temeDiplome' placeholder='')
+                    .col
+                        label(for='pagesaPerTemeDiplome') Pagesa për temë diplome
+                        input.form-control(type='text' id='pagesaPerTemeDiplome' placeholder='')
+                .row
+                    .col
+                        label(for='provimeMaster') Provime master
+                        input.form-control(type='text' id='provimeMaster' placeholder='')
+                    .col
+                        label(for='pagesaPerProvimeMaster') Pagesa për provime master
+                        input.form-control(type='text' id='pagesaPerProvimeMaster' placeholder='')
+            .modal-footer
+                button.btn(type='button' style='background-color:#980709; color:white') Edit
+                button.btn(type='button' style='background-color:#980709; color:white' disabled='') Save
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close

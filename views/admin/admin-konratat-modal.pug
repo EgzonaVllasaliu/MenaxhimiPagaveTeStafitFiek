@@ -1,0 +1,46 @@
+#adminKontrataModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title Kontrata admin
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span.modal-title(aria-hidden='true') &times;
+            .modal-body
+                form
+                    .row
+                        .col
+                            label(for='userId') UserId
+                            input.form-control(type='text' id='userId' placeholder='')
+                        .col
+                            label(for='nrIllogarisë') Numri i llogarisë
+                            input.form-control(type='text' id='nrIllogarisë' placeholder='')
+                    .row
+                        .col
+                            label(for='departamenti') Departamenti
+                            input.form-control(type='text' id='departamenti' placeholder='')
+                        .col
+                            label(for='pozita') Pozita
+                            input.form-control(type='text' id='pozita' placeholder='')
+                    .row
+                        .col
+                            label(for='dataEfillimit') Data e fillimit
+                            input.form-control(type='text' id='dataEfillimit' placeholder='')
+                        .col
+                            label(for='dataEperfundimit') Data e përfundimit
+                            input.form-control(type='text' id='dataEperfundimit' placeholder='')
+                    .row
+                        .col
+                            label(for='ditePune') Gjithsejt ditë pune
+                            input.form-control(type='text' id='ditePune' placeholder='')
+                        .col
+                            label(for='ditePushimi') Gjithsejt ditë pushimi
+                            input.form-control(type='text' id='ditePushimi' placeholder='')
+                    .row
+                        .col.col-md-6
+                            label(for='pagaBaze') Paga bazë
+                            input.form-control(type='text' id='pagaBaze' placeholder='')
+
+            .modal-footer
+                button.btn(type='button' style='background-color:#980709; color:white') Edit
+                button.btn(type='button' style='background-color:#980709; color:white' disabled='') Save
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close

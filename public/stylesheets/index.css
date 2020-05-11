@@ -1,0 +1,70 @@
+.navbar-custom {
+    width: 100vw;
+    height: 50px;
+    margin-left: -20px;
+    background: #920709;
+}
+
+.navinner {
+    padding-left: 120px;
+    margin-top: 5px;
+    padding-right: 120px;
+}
+
+.navinner p {
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+}
+
+.container {
+    margin-top: 20px;
+    height: 82vh;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background: #f7f7f7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.little-nav {
+    position: static;
+    height: 36px;
+    background: #920709;
+    border-radius: 4px;
+}
+
+.little-nav p {
+    display: block;
+    font-size: 14px;
+    color: white;
+}
+
+.tabinner {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.list-group-item .btn {
+    width: 64vw;
+    height: 35px;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(146, 7, 9, 0.2), 0 6px 20px 0 rgba(146, 7, 9, 0.19);
+}
+
+.modal-header {
+    background-color: #920709;
+}
+
+.modal-title {
+    color: white;
+}
+
+#v-pills-admin-home-tab.active, #v-pills-admin-users-tab.active, #v-pills-admin-kontratat-tab.active, #v-pills-admin-paga-tab.active, #v-pills-admin-bonuset-tab.active, #v-pills-admin-diskuto-tab.active, #v-pills-user-home-tab.active, #v-pills-user-profile-tab.active, #v-pills-user-kontratat-tab.active, #v-pills-user-paga-tab.active, #v-pills-user-diskuto-tab.active {
+    background-color: #920709;
+    color: white;
+}
+
+#v-pills-admin-home-tab, #v-pills-admin-users-tab, #v-pills-admin-kontratat-tab, #v-pills-admin-paga-tab, #v-pills-admin-bonuset-tab, #v-pills-admin-diskuto-tab, #v-pills-user-home-tab, #v-pills-user-profile-tab, #v-pills-user-kontratat-tab, #v-pills-user-paga-tab, #v-pills-user-diskuto-tab {
+    color: #920709;
+}

@@ -1,0 +1,18 @@
+#userKontrataModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title Kontrata #{objKontrata.id}
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span.modal-title(aria-hidden='true') &times;
+            .modal-body
+                p Numri i llogarisë: #{objKontrata.nrIllogarise}
+                p Departamenti: #{objKontrata.departamenti}
+                p Pozita: #{objKontrata.pozita}
+                p Data e fillimit: #{objKontrata.fillon}
+                p Data e përfundimit: #{objKontrata.perfundon}
+                p Gjithsejt ditë pune: #{objKontrata.ditePune}
+                p Gjithsejt ditë pushimi: #{objKontrata.ditePushimi}
+                p Paga bazë: #{objKontrata.pagaBaze}
+            .modal-footer
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close

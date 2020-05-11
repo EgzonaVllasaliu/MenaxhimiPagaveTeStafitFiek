@@ -1,5 +1,48 @@
 extends layout
 
+append head
+  link(rel='stylesheet' type='text/css' href='/stylesheets/index.css')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' crossorigin='anonymous')
+  script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
 block content
-  h1= title
-  p Welcome to #{title}
+  // todo get current user's data dynamically
+  - var user = {role: 'admin'}
+
+  if (user.role === 'user')
+    - var kontratat = [{id: '1', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'700'}, {id: '2', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'600'}, {id: '3', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'500'}]
+    - var pagat = [3, 4, 5]
+    .container-fluid
+      nav.navbar.navbar-custom
+        .navinner
+          p SEMP
+          p Logout
+      .container
+        .row
+          .col-sm-2
+            include user/user-nav-menu
+          .col-sm-10
+            include user/user-tabs
+      include user/user-kontratat-modal
+      include user/user-paga-modal
+  else
+    - var kontratat = [0, 1, 2]
+    - var pagat = [3, 4, 5]
+    - var bonuset = [1, 1, 1]
+    - var users = [5, 6, 7]
+    .container-fluid
+      nav.navbar.navbar-custom
+        .navinner
+          p SEMP
+          p Logout
+      .container
+        .row
+          .col-sm-2
+            include admin/admin-nav-menu
+          .col-sm-10
+            include admin/admin-tabs
+      include admin/admin-users-modal
+      include admin/admin-konratat-modal
+      include admin/admin-pagat-modal
+      include admin/admin-bonuset-modal

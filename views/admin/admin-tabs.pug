@@ -1,0 +1,43 @@
+#v-pills-tabContent.tab-content
+    #v-pills-admin-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-admin-home-tab')
+        .navbar.little-nav
+            p Home admin
+        .tabinner
+    #v-pills-admin-users.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-users-tab')
+        .navbar.little-nav
+            p Përdoruesit
+        .tabinner
+            ul.list-group.list-group-flush
+                each val in users
+                    li.list-group-item
+                        button.btn(type='button' data-toggle='modal' data-target='#adminUserModal')  User #{val}
+
+    #v-pills-admin-kontratat.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-kontratat-tab')
+        .navbar.little-nav
+            p Kontratat admin
+        .tabinner
+            ul.list-group.list-group-flush
+                ul.list-group.list-group-flush
+                    each val in kontratat
+                        li.list-group-item
+                            button.btn(type='button' data-toggle='modal' data-target='#adminKontrataModal')  Kontrata #{val}
+    #v-pills-admin-paga.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-paga-tab')
+        .navbar.little-nav
+            p Paga admin
+        .tabinner
+            ul.list-group.list-group-flush
+                each val in pagat
+                    li.list-group-item
+                        button.btn(type='button' data-toggle='modal' data-target='#adminPagaModal')  Paga #{val}
+    #v-pills-admin-bonuset.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-bonuset-tab')
+        .navbar.little-nav
+            p Bonuset admin
+        .tabinner
+            ul.list-group.list-group-flush
+                each val in bonuset
+                    li.list-group-item
+                        button.btn(type='button' data-toggle='modal' data-target='#adminBonusModal')  Bonus #{val}
+    #v-pills-admin-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-diskuto-tab')
+        .navbar.little-nav
+            p Diskuto admin
+        .tabinner

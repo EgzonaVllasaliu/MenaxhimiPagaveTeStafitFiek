@@ -1,0 +1,29 @@
+extends layout
+
+append head
+    link(rel='stylesheet' type='text/css' href='/stylesheets/login.css')
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.13.0/css/all.css')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' crossorigin='anonymous')
+
+block content
+    .login-form
+        img.uni-img(src='/images/unilogo.png' alt='')
+        .form-title E-pagesa
+        span.alert #{message}
+        form(action='login' method='POST')
+            .form-group
+                span.title P&eumldoruesi
+                .input-group
+                    .input-group-prepend
+                        // todo replace @ with user icon
+                        span#basic-addon1.input-group-text @
+                    input#UserName.form-control(name="id" type='text' placeholder='' required='')
+            .form-group.log-status
+                span.title Fjal&eumlkalimin
+                .input-group
+                    .input-group-prepend
+                        // todo replace @ with key icon
+                        span#basic-addon2.input-group-text @
+                    input#Passwod.form-control(name="password" type='password' placeholder='' required='')
+            button.log-btn(type='Submit') Identifikohu
+            a.link(href='#') Keni harruar fjal&eumlkalimin?

@@ -1,0 +1,62 @@
+#adminUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title User
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span.modal-title(aria-hidden='true') &times;
+            .modal-body
+                form
+                    .row
+                        .col
+                            label(for='emri') Emri
+                            input.form-control(type='text' id='emri' placeholder='')
+                        .col
+                            label(for='mbiemri') Mbiemri
+                            input.form-control(type='text' id='mbiemri' placeholder='')
+                    .row
+                        .col
+                            label(for='emriIprindit') Emri i prindit
+                            input.form-control(type='text' id='emriIprindit' placeholder='')
+                        .col
+                            label(for='nrPersonal') Numri Personal
+                            input.form-control(type='text' id='nrPersonal' placeholder='')
+                    .row
+                        .col
+                            label(for='dataElindjes') Data e Lindjes
+                            input.form-control(type='text' id='dataElindjes' placeholder='')
+                        .col
+                            label(for='vendiIlindjes') Vendi i lindjes
+                            input.form-control(type='text' id='vendiIlindjes' placeholder='')
+                    .row
+                        .col
+                            label(for='adresa') Adresa
+                            input.form-control(type='text' id='adresa' placeholder='')
+                        .col
+                            label(for='telefoni') Telefoni
+                            input.form-control(type='text' id='telefoni' placeholder='')
+                    .row
+                        .col
+                            label(for='telZyre') Telefoni/Zyre
+                            input.form-control(type='text' id='telZyre' placeholder='')
+                        .col
+                            label(for='email') Email
+                            input.form-control(type='text' id='email' placeholder='')
+                    .row
+                        .col
+                            label(for='gjinia') Gjinia
+                            input.form-control(type='text' id='gjinia' placeholder='')
+                        .col
+                            label(for='shtetesia') Shtatesia
+                            input.form-control(type='text' id='shtetesia' placeholder='')
+                    .row
+                        .col
+                            label(for='eksperienca') Eksperienca
+                            input.form-control(type='text' id='eksperienca' placeholder='')
+                        .col
+                            label(for='edukimi') Edukimi
+                            input.form-control(type='text' id='edukimi' placeholder='')
+            .modal-footer
+                button.btn(type='button' style='background-color:#980709; color:white') Edit
+                button.btn(type='button' style='background-color:#980709; color:white' disabled='') Save
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close

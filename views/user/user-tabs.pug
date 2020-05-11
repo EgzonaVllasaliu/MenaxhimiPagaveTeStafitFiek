@@ -1,0 +1,31 @@
+- var objKontrata
+#v-pills-tabContent.tab-content
+    #v-pills-user-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-user-home-tab')
+        .navbar.little-nav
+            p Home
+        .tabinner
+    #v-pills-user-profile.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-profile-tab')
+        .navbar.little-nav
+            p Profili
+        .tabinner
+    #v-pills-user-kontratat.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-kontratat-tab')
+        .navbar.little-nav
+            p Kontratat
+        .tabinner
+            ul.list-group.list-group-flush
+                each val in kontratat
+                    - objKontrata = val
+                    li.list-group-item
+                        button.btn(type='button' data-toggle='modal' data-target='#userKontrataModal' data-myvar='#{objKontrata}')  Kontrata #{objKontrata.id}
+    #v-pills-user-paga.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-paga-tab')
+        .navbar.little-nav
+            p Paga
+        .tabinner
+            ul.list-group.list-group-flush
+                each val in pagat
+                    li.list-group-item
+                        button.btn(type='button' data-toggle='modal' data-target='#userPagaModal')  Paga #{val}
+    #v-pills-user-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-diskuto-tab')
+        .navbar.little-nav
+            p Diskuto
+        .tabinner
