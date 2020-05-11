@@ -1,62 +1,62 @@
-#adminUserModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+#adminUserModal.modal.fade(data-backdrop="static" tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
     .modal-dialog(role='document')
         .modal-content
             .modal-header
                 h5#exampleModalLabel.modal-title User
-                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='useSave()')
                     span.modal-title(aria-hidden='true') &times;
             .modal-body
                 form
                     .row
                         .col
                             label(for='emri') Emri
-                            input.form-control(type='text' id='emri' placeholder='')
+                            input.form-control(type='text' id='emri' value='' disabled='')
                         .col
                             label(for='mbiemri') Mbiemri
-                            input.form-control(type='text' id='mbiemri' placeholder='')
+                            input.form-control(type='text' id='mbiemri' value='' disabled='')
                     .row
                         .col
                             label(for='emriIprindit') Emri i prindit
-                            input.form-control(type='text' id='emriIprindit' placeholder='')
+                            input.form-control(type='text' id='emriIprindit' value='' disabled='')
                         .col
                             label(for='nrPersonal') Numri Personal
-                            input.form-control(type='text' id='nrPersonal' placeholder='')
+                            input.form-control(type='text' id='nrPersonal' value='' disabled='')
                     .row
                         .col
                             label(for='dataElindjes') Data e Lindjes
-                            input.form-control(type='text' id='dataElindjes' placeholder='')
+                            input.form-control(type='text' id='dataElindjes' value='' disabled='')
                         .col
                             label(for='vendiIlindjes') Vendi i lindjes
-                            input.form-control(type='text' id='vendiIlindjes' placeholder='')
+                            input.form-control(type='text' id='vendiIlindjes' value='' disabled='')
                     .row
                         .col
                             label(for='adresa') Adresa
-                            input.form-control(type='text' id='adresa' placeholder='')
+                            input.form-control(type='text' id='adresa' value='' disabled='')
                         .col
                             label(for='telefoni') Telefoni
-                            input.form-control(type='text' id='telefoni' placeholder='')
+                            input.form-control(type='text' id='telefoni' value='' disabled='')
                     .row
                         .col
                             label(for='telZyre') Telefoni/Zyre
-                            input.form-control(type='text' id='telZyre' placeholder='')
+                            input.form-control(type='text' id='telZyre' value='' disabled='')
                         .col
                             label(for='email') Email
-                            input.form-control(type='text' id='email' placeholder='')
+                            input.form-control(type='text' id='email' value='' disabled='')
                     .row
                         .col
                             label(for='gjinia') Gjinia
-                            input.form-control(type='text' id='gjinia' placeholder='')
+                            input.form-control(type='text' id='gjinia' value='' disabled='')
                         .col
                             label(for='shtetesia') Shtatesia
-                            input.form-control(type='text' id='shtetesia' placeholder='')
+                            input.form-control(type='text' id='shtetesia' value='' disabled='')
                     .row
                         .col
                             label(for='eksperienca') Eksperienca
-                            input.form-control(type='text' id='eksperienca' placeholder='')
+                            input.form-control(type='text' id='eksperienca' value='' disabled='')
                         .col
                             label(for='edukimi') Edukimi
-                            input.form-control(type='text' id='edukimi' placeholder='')
+                            input.form-control(type='text' id='edukimi' value='' disabled='')
             .modal-footer
-                button.btn(type='button' style='background-color:#980709; color:white') Edit
-                button.btn(type='button' style='background-color:#980709; color:white' disabled='') Save
-                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
+                button.btn#useEdit(type='button' style='background-color:#980709; color:white' onclick='useEdit()') Edit
+                button.btn#useSave(type='button' style='background-color:#980709; color:white' disabled='' onclick='useSave()') Save
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='useSave()') Close

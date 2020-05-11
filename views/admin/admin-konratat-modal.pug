@@ -1,46 +1,46 @@
-#adminKontrataModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+#adminKontrataModal.modal.fade(data-backdrop="static" tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
     .modal-dialog(role='document')
         .modal-content
             .modal-header
                 h5#exampleModalLabel.modal-title Kontrata admin
-                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='konSave()')
                     span.modal-title(aria-hidden='true') &times;
             .modal-body
                 form
                     .row
                         .col
                             label(for='userId') UserId
-                            input.form-control(type='text' id='userId' placeholder='')
+                            input.form-control(type='text' id='userId' value='' disabled='')
                         .col
-                            label(for='nrIllogarisë') Numri i llogarisë
-                            input.form-control(type='text' id='nrIllogarisë' placeholder='')
+                            label(for='nrIllogarise') Numri i llogarisë
+                            input.form-control(type='text' id='nrIllogarise' value='' disabled='')
                     .row
                         .col
                             label(for='departamenti') Departamenti
-                            input.form-control(type='text' id='departamenti' placeholder='')
+                            input.form-control(type='text' id='departamenti' value='' disabled='')
                         .col
                             label(for='pozita') Pozita
-                            input.form-control(type='text' id='pozita' placeholder='')
+                            input.form-control(type='text' id='pozita' value='' disabled='')
                     .row
                         .col
                             label(for='dataEfillimit') Data e fillimit
-                            input.form-control(type='text' id='dataEfillimit' placeholder='')
+                            input.form-control(type='text' id='dataEfillimit' value='' disabled='')
                         .col
                             label(for='dataEperfundimit') Data e përfundimit
-                            input.form-control(type='text' id='dataEperfundimit' placeholder='')
+                            input.form-control(type='text' id='dataEperfundimit' value='' disabled='')
                     .row
                         .col
                             label(for='ditePune') Gjithsejt ditë pune
-                            input.form-control(type='text' id='ditePune' placeholder='')
+                            input.form-control(type='text' id='ditePune' value='' disabled='')
                         .col
                             label(for='ditePushimi') Gjithsejt ditë pushimi
-                            input.form-control(type='text' id='ditePushimi' placeholder='')
+                            input.form-control(type='text' id='ditePushimi' value='' disabled='')
                     .row
                         .col.col-md-6
-                            label(for='pagaBaze') Paga bazë
-                            input.form-control(type='text' id='pagaBaze' placeholder='')
+                            label(for='pagaBazek') Paga bazë
+                            input.form-control(type='text' id='pagaBazek' value='' disabled='')
 
             .modal-footer
-                button.btn(type='button' style='background-color:#980709; color:white') Edit
-                button.btn(type='button' style='background-color:#980709; color:white' disabled='') Save
-                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
+                button.btn#konEdit(type='button' style='background-color:#980709; color:white' onclick='konEdit()') Edit
+                button.btn#konSave(type='button' style='background-color:#980709; color:white' disabled='' onclick='konSave()') Save
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='konSave()') Close

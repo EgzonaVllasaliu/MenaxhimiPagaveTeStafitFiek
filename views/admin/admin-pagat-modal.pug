@@ -1,47 +1,47 @@
-#adminPagaModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+#adminPagaModal.modal.fade(data-backdrop="static" tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
     .modal-dialog(role='document')
         .modal-content
             .modal-header
                 h5#exampleModalLabel.modal-title Paga
-                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='pagClose()')
                     span.modal-title(aria-hidden='true') &times;
             .modal-body
                 .row
                     .col
                         label(for='pagaBruto') Paga bruto
-                        input.form-control(type='text' id='pagaBruto' placeholder='')
+                        input.form-control(type='text' id='pagaBruto' value='' disabled='')
                     .col
                         label(for='pagaBaze') Paga bazë
-                        input.form-control(type='text' id='pagaBaze' placeholder='')
+                        input.form-control(type='text' id='pagaBaze' value='' disabled='')
                 .row
                     .col
                         label(for='pervoja') Përvoja
-                        input.form-control(type='text' id='pervoja' placeholder='')
+                        input.form-control(type='text' id='pervoja' value='' disabled='')
                     .col
                         label(for='kontributi') Kontributi i punëtorit
-                        input.form-control(type='text' id='kontributi' placeholder='')
+                        input.form-control(type='text' id='kontributi' value='' disabled='')
                 .row
                     .col
                         label(for='transporti') Transporti
-                        input.form-control(type='text' id='transporti' placeholder='')
+                        input.form-control(type='text' id='transporti' value='' disabled='')
                     .col
                         label(for='shujta') Shujta
-                        input.form-control(type='text' id='shujta' placeholder='')
+                        input.form-control(type='text' id='shujta' value='' disabled='')
                 .row
                     .col
                         label(for='sigurimi') Sigurimi
-                        input.form-control(type='text' id='sigurimi' placeholder='')
+                        input.form-control(type='text' id='sigurimi' value='' disabled='')
                     .col
                         label(for='sindikata') Sindikata
-                        input.form-control(type='text' id='sindikata' placeholder='')
+                        input.form-control(type='text' id='sindikata' value='' disabled='')
                 .row
                     .col
                         label(for='tatimi') Tatimi
-                        input.form-control(type='text' id='tatimi' placeholder='')
+                        input.form-control(type='text' id='tatimi' value='' disabled='')
                     .col
                         label(for='pagaNeto') Paga neto
-                        input.form-control(type='text' id='pagaNeto' placeholder='')
+                        input.form-control(type='text' id='pagaNeto' value='' disabled='')
             .modal-footer
-                button.btn(type='button' style='background-color:#980709; color:white') Edit
-                button.btn(type='button' style='background-color:#980709; color:white' disabled='') Save
-                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
+                button.btn#pagEdit(type='button' style='background-color:#980709; color:white' onclick='pagEdit()') Edit
+                button.btn#pagSave(type='button' style='background-color:#980709; color:white' disabled='' onclick='pagSave()') Save
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='pagSave()') Close
