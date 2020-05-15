@@ -10,7 +10,8 @@ CREATE TABLE [dbo].[Bonuset] (
 	[TemeDiplomeMaster]				INT				NULL,
     [QmimiPerTemeDiplomeMaster]		DECIMAL (18, 4)	NULL,
     [ProvimeMaster]					INT				NULL,
-    [QmimiPerProvimeMaster]			DECIMAL (18, 4)	NULL
+    [QmimiPerProvimeMaster]			DECIMAL (18, 4)	NULL,
+	[Totali]     				DECIMAL (18, 4)	NOT NULL,
     CONSTRAINT [PK_Bonuset_Id] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 90),
 	CONSTRAINT [FK_Bonuset_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([Id]),
     );
