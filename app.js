@@ -5,9 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
+const pug = require('pug')
 
 //modules from our routes directory
-var userRouter = require('./routes/users');
+// var userRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -35,8 +36,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // particular routes for the different parts of the site
-app.use('/', userRouter);
-// app.use('/index', indexRouter);
+// app.use('/user', userRouter);
+app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
