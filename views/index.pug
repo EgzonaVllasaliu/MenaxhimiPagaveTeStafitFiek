@@ -14,11 +14,11 @@ block content
   if (user.role === 'user')
     - var kontratat = [{id: '1', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'700'}, {id: '2', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'600'}, {id: '3', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'500'}]
     - var pagat = [3, 4, 5]
-    .container-fluid
+    .container-fluid(style='padding: 0')
       nav.navbar.navbar-custom
         .navinner
           p SEMP
-          p Logout
+          a(href="/logout", rel="noopener noreferrer") Logout
       .container
         .row
           .col-sm-2
@@ -32,11 +32,13 @@ block content
     - var pagat = [3, 4, 5]
     - var bonuset = [1, 1, 1]
     - var users = [5, 6, 7]
-    .container-fluid
+    .container-fluid(style='padding: 0')
       nav.navbar.navbar-custom
         .navinner
           p SEMP
-          p Logout
+        .navinner
+          p
+            a(href="/logout") Logout
       .container
         .row
           .col-sm-2

@@ -10,20 +10,20 @@ block content
         img.uni-img(src='/images/unilogo.png' alt='')
         .form-title E-pagesa
         span.alert #{message}
-        form(action='login' method='POST')
+        form(action='/index' method='POST')
             .form-group
-                span.title P&eumldoruesi
+                span.title P&euml;doruesi
                 .input-group
                     .input-group-prepend
                         // todo replace @ with user icon
                         span#basic-addon1.input-group-text @
                     input#UserName.form-control(name="id" type='text' placeholder='' required='')
             .form-group.log-status
-                span.title Fjal&eumlkalimin
+                span.title Fjal&euml;kalimin
                 .input-group
                     .input-group-prepend
                         // todo replace @ with key icon
                         span#basic-addon2.input-group-text @
                     input#Passwod.form-control(name="password" type='password' placeholder='' required='')
             button.log-btn(type='Submit') Identifikohu
-            a.link(href='#') Keni harruar fjal&eumlkalimin?
+            a.link(href='#') Keni harruar fjal&euml;kalimin?

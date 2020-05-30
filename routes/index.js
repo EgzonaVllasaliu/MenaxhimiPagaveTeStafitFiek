@@ -15,16 +15,24 @@ var bonus_cont = new bonus_controller();
 /**
  *  GET index page.
  */
-router.get('/', authentication.is_login, function(req, res) {
-  // todo pass current user's data through parameters
-  // todo get user's role from coockie
-  var role = 'user';
-  res.render('index', {title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', role: role});
+router.get('/index', authentication.is_login, function(req, res) {
+    // todo pass current user's data through parameters
+    // todo get user's role from coockie
+    var role = 'user';
+    console.log("Palfuhjeih")
+    console.log(req.session.userId)
+    res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', role: role });
 });
 
 /**
  * GET login page after logging out.
  */
-router.get('/logout', user_cont.logout);
+// router.post('/logout', user_cont.logout);
+router.get('/logout', function(req, res) {
+    console.log("jdhgaskjhd")
+    req.session.destroy();
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = router;

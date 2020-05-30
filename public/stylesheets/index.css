@@ -1,20 +1,39 @@
 .navbar-custom {
-    width: 100vw;
+    width: 100%;
     height: 50px;
-    margin-left: -20px;
+    padding: 20px;
     background: #920709;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navinner {
-    padding-left: 120px;
-    margin-top: 5px;
-    padding-right: 120px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .navinner p {
-    display: inline-block;
+    padding-left: 100px;
     font-size: 18px;
     color: white;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navinner p a {
+    padding-right: 100px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navinner a:hover {
+    display: inline-block;
+    font-size: 18px;
+    color: red;
+    text-decoration: none;
 }
 
 .container {
@@ -60,11 +79,31 @@
     color: white;
 }
 
-#v-pills-admin-home-tab.active, #v-pills-admin-users-tab.active, #v-pills-admin-kontratat-tab.active, #v-pills-admin-paga-tab.active, #v-pills-admin-bonuset-tab.active, #v-pills-admin-diskuto-tab.active, #v-pills-user-home-tab.active, #v-pills-user-profile-tab.active, #v-pills-user-kontratat-tab.active, #v-pills-user-paga-tab.active, #v-pills-user-diskuto-tab.active {
+#v-pills-admin-home-tab.active,
+#v-pills-admin-users-tab.active,
+#v-pills-admin-kontratat-tab.active,
+#v-pills-admin-paga-tab.active,
+#v-pills-admin-bonuset-tab.active,
+#v-pills-admin-diskuto-tab.active,
+#v-pills-user-home-tab.active,
+#v-pills-user-profile-tab.active,
+#v-pills-user-kontratat-tab.active,
+#v-pills-user-paga-tab.active,
+#v-pills-user-diskuto-tab.active {
     background-color: #920709;
     color: white;
 }
 
-#v-pills-admin-home-tab, #v-pills-admin-users-tab, #v-pills-admin-kontratat-tab, #v-pills-admin-paga-tab, #v-pills-admin-bonuset-tab, #v-pills-admin-diskuto-tab, #v-pills-user-home-tab, #v-pills-user-profile-tab, #v-pills-user-kontratat-tab, #v-pills-user-paga-tab, #v-pills-user-diskuto-tab {
+#v-pills-admin-home-tab,
+#v-pills-admin-users-tab,
+#v-pills-admin-kontratat-tab,
+#v-pills-admin-paga-tab,
+#v-pills-admin-bonuset-tab,
+#v-pills-admin-diskuto-tab,
+#v-pills-user-home-tab,
+#v-pills-user-profile-tab,
+#v-pills-user-kontratat-tab,
+#v-pills-user-paga-tab,
+#v-pills-user-diskuto-tab {
     color: #920709;
 }

@@ -3,7 +3,7 @@ var User = require('../models/user');
 
 class UserController {
 
-    login (req, res) {
+    login(req, res) {
         var message = '';
 
         if (req.method == "POST") {
@@ -15,21 +15,21 @@ class UserController {
             if (id == "admin" && password == "admin") {
                 //session creation
                 req.session.userId = id;
-                // todo check user's role and store it on a cookie
+                console.log(req.session.userId)
+                    // todo check user's role and store it on a cookie
                 res.cookie('role', 'user')
-                res.redirect('index');
+                res.render('index');
             } else {
                 message = 'Nuk e keni shkruar përdoruesin ose fjalëkalimin e saktë!';
-                res.render('login', {title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', message: message});
+                res.render('login', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', message: message });
             }
         }
     }
 
-    logout (req, res) {
-        //session destroy
-        req.session = null;
-        res.clearCookie();
-        res.redirect('/login');
+    logout(req, res) {
+        req.session.destroy();
+        res.clearCookie("role");
+        res.redirect('/');
     }
 
     // todo get all user function
