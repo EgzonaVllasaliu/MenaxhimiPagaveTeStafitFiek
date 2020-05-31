@@ -1,5 +1,7 @@
 var User = require('../models/user');
-// var connection = require('./../config');
+// var dbConnection = require('../database/dbConnection');
+
+const { pool } = require('../database/dbConnection')
 
 class UserController {
 
@@ -33,6 +35,15 @@ class UserController {
     }
 
     // todo get all user function
+
+    getUsers(req, res) {
+        pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+            if (error) {
+                throw error
+            }
+            res.status(200).json(results.rows)
+        })
+    }
 
     // todo get profile for a specific user function
 

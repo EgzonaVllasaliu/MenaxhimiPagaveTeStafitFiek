@@ -10,7 +10,7 @@ var landing_controller = require('../controllers/landingController')
 var user_cont = new user_controller();
 
 /**
- * GET login page.
+ *  GET login page.
  */
 router.get('/', authentication.is_not_loggedin, landing_controller.login);
 
