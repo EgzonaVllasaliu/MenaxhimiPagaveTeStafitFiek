@@ -9,7 +9,7 @@ append head
   script(src='/javascripts/modal.js')
 block content
   // todo get current user's data dynamically
-  - var user = {role: 'admin'}
+  - var user = {role: 'user'}
 
   if (user.role === 'user')
     - var kontratat = [{id: '1', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'700'}, {id: '2', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'600'}, {id: '3', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'500'}]
@@ -38,7 +38,8 @@ block content
           p SEMP
         .navinner
           p
-            a(href="/logout") Logout
+            a(href="/logout") Logout   
+          h1= result  
       .container
         .row
           .col-sm-2

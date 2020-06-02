@@ -1,5 +1,5 @@
 var User = require('../models/user');
-// var dbConnection = require('../database/dbConnection');
+var landing_cont = require('../controllers/landingController.js');
 
 const { pool } = require('../database/dbConnection')
 
@@ -20,7 +20,10 @@ class UserController {
                 console.log(req.session.userId)
                     // todo check user's role and store it on a cookie
                 res.cookie('role', 'user')
-                res.render('index');
+                    // var result = 2 + 2;
+                    // console.log(result)
+                    // res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', result: result });
+                redirect('index', )
             } else {
                 message = 'Nuk e keni shkruar përdoruesin ose fjalëkalimin e saktë!';
                 res.render('login', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', message: message });
@@ -37,10 +40,11 @@ class UserController {
     // todo get all user function
 
     getUsers(req, res) {
-        pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+        pool.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
             if (error) {
                 throw error
             }
+            console.log(results.rows[0]['username'])
             res.status(200).json(results.rows)
         })
     }
