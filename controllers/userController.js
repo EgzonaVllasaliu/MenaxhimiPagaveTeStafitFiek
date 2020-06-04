@@ -1,7 +1,14 @@
 var User = require('../models/user');
-var landing_cont = require('../controllers/landingController.js');
+var bcrypt = require('bcrypt');
+var landing_cont = require('../controllers/landingController');
+var authentication = require('../middleware/authentication');
+
+
+
 
 const { pool } = require('../database/dbConnection')
+
+var saltRounds = 10;
 
 class UserController {
 
@@ -23,7 +30,7 @@ class UserController {
                     // var result = 2 + 2;
                     // console.log(result)
                     // res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', result: result });
-                redirect('index', )
+                res.redirect('index')
             } else {
                 message = 'Nuk e keni shkruar përdoruesin ose fjalëkalimin e saktë!';
                 res.render('login', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', message: message });
@@ -52,6 +59,27 @@ class UserController {
     // todo get profile for a specific user function
 
     // todo add a user
+
+    createUser(req,res){
+        const { first_name, last_name, username, password, parent_name, personal_number, birthdate, birthplace, address, mobile, phone, email, gender, nationality, experience, education, previous_years_experience } = req.body
+        var hashedPassword;
+        
+        bcrypt.hash(password, saltRounds, function (err, hash) {
+                if (err) {
+                    throw err
+                } else {
+                    hashedPassword = hash;
+                }
+            })    
+        console.log(hashedPassword)
+    
+        pool.query('INSERT INTO users (first_name, last_name, parent_name, username, password, personal_number, birthdate, birthplace, address, mobile, phone, email, gender, education, previous_years_experience, experience, nationality) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)', [first_name,last_name, parent_name, username, hashedPassword, personal_number, birthdate, birthplace, address, mobile, phone, email, gender, education, previous_years_experience, experience, nationality], (error, results) => {
+            if (error) {
+                throw error
+            }
+            res.status(201).send(`User added with ID: Po dhez babik`)
+        })
+    }
 
     // todo update a user
 

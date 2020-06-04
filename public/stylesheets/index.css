@@ -64,14 +64,22 @@
 }
 
 .list-group-item .btn {
-    width: 64vw;
+    width: 100%;
     height: 35px;
     text-align: left;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(146, 7, 9, 0.2), 0 6px 20px 0 rgba(146, 7, 9, 0.19);
 }
-
-.modal-header {
+.symbol {
+    color: white;
+    border: none;
+    margin-top: -9px;
+    font-weight: 600;
+    font-size: 21px;
+    background-color: #920709;
+    outline: none;
+}
+.modal-header{
     background-color: #920709;
 }
 

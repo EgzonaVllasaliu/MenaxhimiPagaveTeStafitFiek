@@ -1,0 +1,229 @@
+CREATE TABLE public.users
+(
+    user_id SERIAL PRIMARY KEY,
+    first_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    last_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    parent_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    role character varying(50) COLLATE pg_catalog."default" DEFAULT 1,
+    personal_number character varying(20) COLLATE pg_catalog."default",
+    birthdate date,
+    birthplace character varying(80) COLLATE pg_catalog."default",
+    address character varying(100) COLLATE pg_catalog."default",
+    mobile character varying(20) COLLATE pg_catalog."default",
+    phone character varying(15) COLLATE pg_catalog."default",
+    email character varying(30) COLLATE pg_catalog."default",
+    created_at timestamp without time zone,
+    gender character(2) COLLATE pg_catalog."default",
+    education character varying(80) COLLATE pg_catalog."default",
+	previous_years_experience NUMERIC(5,2) NOT NULL DEFAULT 0,
+    experience character varying(90) COLLATE pg_catalog."default",
+    nationality character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT ck_user_gender CHECK (gender = 'M'::bpchar OR gender = 'F'::bpchar)
+);
+
+INSERT INTO USERS (user_id, first_name, last_name, parent_name, username, password, personal_number, birthdate, birthplace,
+						address, mobile, phone, email, created_at, gender, education, previous_years_experience, experience, 
+						nationality) VALUES(1, 'Isak', 'Shabani', 'Xhevdet', '111222', 'password123', '1234567890', '1972-04-05',
+											'Ferizaj', 'Agim Ramadani', '044111222', '038111222', 'isak.shabani@uni-pr.edu',
+											NOW(), 'M', 'PhD', 20, 'Doktor i shkencave kompjuterike','Kosovare');	
+
+SELECT personal_number from users;
+
+
+CREATE TABLE Contract(
+	contract_id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL,
+	bank_account_id VARCHAR (50) NOT NULL,
+	department VARCHAR (50) NOT NULL,
+	position VARCHAR (50) NOT NULL,
+	contract_registration_date DATE NULL,
+	contract_termination_date DATE NULL,
+	working_days INT NULL,
+	days_off INT NULL, 
+	basic_salary NUMERIC(10,2) NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES Users (user_id)
+);
+
+INSERT INTO CONTRACT(contract_id, user_id, bank_account_id, department, position, contract_registration_date,
+					 contract_termination_date, working_days, days_off, basic_salary) 
+					VALUES(1, 1, '1234567890123456', 'Kompjuterike', 'Profesor', '2019-01-05', '2022-01-05', 20, 20, 1000);
+					
+SELECT * FROM CONTRACT;
+
+CREATE TABLE bonus
+(
+    bonus_id SERIAL PRIMARY KEY,
+    user_id integer NOT NULL,
+    extra_hours numeric(18,2),
+    price_extra_hours numeric(18,2),
+    work_hours numeric(18,2),
+    price_work_hours numeric(18,2),
+    bachelor_thesis integer,
+    price_bachelor_thesis numeric(18,2),
+    master_thesis integer,
+    price_master_thesis numeric(18,2),
+    master_exam integer,
+    price_master_exam numeric(18,2),
+	FOREIGN KEY (user_id) REFERENCES Users (user_id)
+);
+
+INSERT INTO BONUS(user_id, extra_hours, price_extra_hours, work_hours, price_work_hours, bachelor_thesis, 
+				 price_bachelor_thesis, master_thesis, price_master_thesis, master_exam, price_master_exam)
+				 VALUES('1', 8, 15, 80, 12.5, 8, 50, 5, 120, 10, 0.5);
+				 
+SELECT * FROM bonus;
+
+
+CREATE TABLE SalaryParameters (
+    salary_paramerters_id SERIAL PRIMARY KEY,
+    Price_per_hours INT NOT NULL,
+    Price_per_extra_hours DECIMAL (6, 2) NOT NULL,
+    Price_per_bachelor_thesis DECIMAL (6, 2)	NOT NULL,
+	Price_per_master_thesis	DECIMAL (6, 2)	NOT NULL,
+    Price_per_master_exams DECIMAL (6, 2)	NOT NULL,
+	experience_percentage DECIMAL (6, 2) NOT NULL,
+	Contribute_percentage DECIMAL (6, 2) NOT NULL,
+    Syndicate_percentage DECIMAL (6, 2)	NOT NULL,
+	Insurance_percantage DECIMAL (6, 2)	NOT NULL,
+    Meals DECIMAL (6, 2)	NOT NULL,
+    Transport DECIMAL (6, 2)	NOT NULL 
+    );
+	
+INSERT INTO SalaryParameters values(1, 12.5, 15, 50, 120, 5, 0.5, 5, 0.5, 7, 46.5, 50);
+
+SELECT * FROM SalaryParameters;
+
+CREATE TABLE mainSalary (
+    main_salary_id 	SERIAL PRIMARY KEY,
+    month INT NOT NULL,
+    year INT NOT NULL,  
+	CONSTRAINT CK_MONTH CHECK(month BETWEEN 1 AND 12), 
+	CONSTRAINT CK_YEAR CHECK(year BETWEEN 1969 AND EXTRACT(YEAR FROM NOW()))
+    );
+INSERT INTO mainSalary VALUES(1, 1, 2020);
+
+CREATE TABLE salaryDetails (
+    salary_id SERIAL PRIMARY KEY,
+	main_salary_id INT	NOT NULL,
+    bonus_id INT NULL,
+	contract_id INT	NOT NULL,
+	meals DECIMAL (6, 2)	NOT NULL default 0,
+    transport DECIMAL (6, 2)	NOT NULL default 0,
+    employee_contributions DECIMAL (10, 2)	NOT NULL default 0,
+    tax DECIMAL (10, 2) NOT NULL default 0,
+    insurance DECIMAL (10, 2)	NOT NULL default 0,
+	syndicate DECIMAL (10, 2)	NOT NULL default 0,
+	FOREIGN KEY (bonus_id) REFERENCES bonus (bonus_id),
+    FOREIGN KEY (contract_id) REFERENCES contract (contract_id),
+	FOREIGN KEY (main_salary_id) REFERENCES mainSalary (main_salary_id)
+	);
+
+INSERT INTO salaryDetails VALUES(1, 1 , 1, 1, 46.5, 50, 5, 15, 7, 0.5 );
+SELECT * FROM salaryDetails;
+
+
+create function LlogBonuset (
+      OretShtese decimal(12,2), 
+      QmimiPerOreShtese decimal(12,2), 
+      OrePuneNeJave decimal(12,2),
+      QmimiPerOrePune decimal(12,2), 
+      TemeDiplomeBachelor decimal(12,2), 
+      QmimiPerTemeDiplomeBachelor decimal(12,2),
+      TemeDiplomeMaster decimal(12,2),
+      QmimiPerTemeDiplomeMaster decimal(12,2), 
+      ProvimeMaster decimal(12,2),
+      QmimiPerProvimeMaster decimal(12,2))
+returns decimal (18,2)
+
+as $$ BEGIN return (OretShtese*QmimiPerOreShtese +  
+          OrePuneNeJave*QmimiPerOrePune + 
+          TemeDiplomeBachelor*QmimiPerTemeDiplomeBachelor + 
+          TemeDiplomeMaster*QmimiPerTemeDiplomeMaster +
+          ProvimeMaster*QmimiPerTemeDiplomeMaster);
+		  END;  $$
+LANGUAGE PLPGSQL;
+
+Select LlogBonuset(2,10,2,15,3,20,4,30,6,35);
+
+
+create function LlogSindikatenSiguriminKontributin (
+      PagaBruto decimal(12,2), 
+      Perqindja decimal(12,2))
+returns decimal (18,2)
+as $$ BEGIN return PagaBruto * Perqindja / 100;
+END; $$
+LANGUAGE PLPGSQL;
+
+Select LlogSindikatenSiguriminKontributin(2900,7);
+
+create function LlogPagenNeto (PagaBruto decimal(12,2), 
+                               KontributiIPunetorit decimal(12,2),
+                               tatimi decimal(12,2),
+                               Sigurimi decimal(12,2), 
+                               Sindikata decimal(12,2))
+returns decimal (18,2)
+
+as $$
+BEGIN 
+ return PagaBruto - KontributiIPunetorit - tatimi - Sigurimi - Sindikata;
+END; $$
+LANGUAGE PLPGSQL;
+
+create function Pervoja (NrVite decimal(12,2), pagaBaze decimal(12,2),
+                        perqindja decimal(12,2))
+returns decimal (18,2)
+
+as $$
+BEGIN
+ return nrVite * pagaBaze * perqindja /100;
+END; $$ 
+LANGUAGE PLPGSQL;
+
+create function NrVite (PervojaViteParaprake decimal(12,2), DataFillimitKontrates date, DataMomentale date)
+returns decimal (18,2)
+
+as $$
+BEGIN
+ return  DATEDIFF(month, DataFillimitKontrates, DataMomentale)*1/12 + PervojaViteParaprake;
+ END; $$
+LANGUAGE PLPGSQL;
+
+
+
+create function LlogPagaBruto (pagaBaze decimal (18,2), pervoja decimal(18,2), Totalbonuset decimal(18,2), 
+                               shujta decimal(18,2), transporti decimal (18,2))		   
+returns decimal (18,2)
+as $$
+ BEGIN
+ 	return pagaBaze + pervoja + Totalbonuset + shujta + transporti;
+ END; $$
+LANGUAGE PLPGSQL;
+
+create function LlogTatimin (PagaBazePerTatim decimal(12,2))
+returns decimal (18,2)
+
+as $$
+
+DECLARE tatimi decimal (12,2) := 0;
+BEGIN
+
+  IF PagaBazePerTatim > 80 and PagaBazePerTatim <= 250 THEN
+     tatimi = (PagaBazePerTatim - 80) * 0.04;
+  END IF;	 
+  
+   IF PagaBazePerTatim > 250 and PagaBazePerTatim <= 450 THEN
+       tatimi = (PagaBazePerTatim - 250) * 0.8 + 6.8;
+   END IF;
+   
+   IF PagaBazePerTatim > 450 THEN
+       tatimi = (PagaBazePerTatim - 450) * 0.1 + 22.8;
+   END IF;
+   
+   return tatimi;
+
+END; $$
+LANGUAGE PLPGSQL;
+
+SELECT LlogTatimin(1000);

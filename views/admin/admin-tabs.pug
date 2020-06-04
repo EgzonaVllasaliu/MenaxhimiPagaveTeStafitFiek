@@ -6,6 +6,7 @@
     #v-pills-admin-users.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-users-tab')
         .navbar.little-nav
             p Përdoruesit
+            button.symbol(type='button' data-toggle='modal' data-target='#adminUserCreateModal') +
         .tabinner
             ul.list-group.list-group-flush
                 each val in users

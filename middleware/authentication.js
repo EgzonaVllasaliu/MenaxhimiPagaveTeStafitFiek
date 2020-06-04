@@ -27,6 +27,7 @@ var Auth = {
                 console.log(hash);
             }
         })
+        return hash;
     },
 
     compareSaltedPassword: function (passwordEnteredByUser, hash) {
