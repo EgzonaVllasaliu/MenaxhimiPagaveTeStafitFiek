@@ -5,9 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
-const pug = require('pug')
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
 
 //modules from our routes directory
 // var userRouter = require('./routes/users');

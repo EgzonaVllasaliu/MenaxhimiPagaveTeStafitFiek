@@ -1,5 +1,6 @@
 var User = require('../models/user');
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
+var moment = require('moment');
 var landing_cont = require('../controllers/landingController');
 var authentication = require('../middleware/authentication');
 
@@ -60,10 +61,11 @@ class UserController {
     createUser(req,res){
         const { first_name, last_name, username, password, parent_name, personal_number, birthdate, birthplace, address, mobile, phone, email, gender, nationality, experience, education, previous_years_experience } = req.body
        
-        pool.query('INSERT INTO users (first_name, last_name, parent_name, username, password, personal_number, birthdate, birthplace, address, mobile, phone, email, gender, education, previous_years_experience, experience, nationality) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)', [first_name,last_name, username, password, parent_name,personal_number, birthdate, birthplace, address, mobile, phone, email, gender, education, previous_years_experience, experience, nationality], (error, results) => {
+        pool.query('INSERT INTO users (first_name, last_name, parent_name, username, password, personal_number, birthdate, birthplace, address, mobile, phone, email, created_at, gender, education, previous_years_experience, experience, nationality) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)', [first_name,last_name, username, password, parent_name,personal_number, birthdate, birthplace, address, mobile, phone, email, moment(Date.now()).format('MM/DD/YYYY'), gender, education, previous_years_experience, experience, nationality], (error, results) => {
             if (error) {
                 throw error
             }
+            res.redirect('/index')
         })
     }
 

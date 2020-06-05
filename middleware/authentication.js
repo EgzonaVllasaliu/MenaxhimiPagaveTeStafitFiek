@@ -1,4 +1,4 @@
-var bcrypt = require('bcrypt');
+// var bcrypt = require('bcrypt');
 var saltRounds = 10;
 
 /**
@@ -18,35 +18,35 @@ var Auth = {
             return res.redirect('/index')
         }
         next();
-    },
-    createSaltedPassword: function (password) {
-        bcrypt.genSalt(saltRounds, function (err, salt) {
-        if (err) {
-          throw err
-        } else {
-          bcrypt.hash(password, salt, function(err, hash) {
-            if (err) {
-              throw err
-            } else {
-              return hash;
-              //$2a$10$FEBywZh8u9M0Cec/0mWep.1kXrwKeiWDba6tdKvDfEBjyePJnDT7K
-            }
-          })
-        }
-      })
-    },
-
-    compareSaltedPassword: function (passwordEnteredByUser, hash) {
-        bcrypt.compare(passwordEnteredByUser, hash, function(err, isMatch) {
-            if (err) {
-              throw err
-            } else if (!isMatch) {
-              console.log("Password doesn't match!")
-            } else {
-              console.log("Password matches!")
-            }
-          })
     }
+    // createSaltedPassword: function (password) {
+    //     bcrypt.genSalt(saltRounds, function (err, salt) {
+    //     if (err) {
+    //       throw err
+    //     } else {
+    //       bcrypt.hash(password, salt, function(err, hash) {
+    //         if (err) {
+    //           throw err
+    //         } else {
+    //           return hash;
+    //           //$2a$10$FEBywZh8u9M0Cec/0mWep.1kXrwKeiWDba6tdKvDfEBjyePJnDT7K
+    //         }
+    //       })
+    //     }
+    //   })
+    // },
+
+    // compareSaltedPassword: function (passwordEnteredByUser, hash) {
+    //     bcrypt.compare(passwordEnteredByUser, hash, function(err, isMatch) {
+    //         if (err) {
+    //           throw err
+    //         } else if (!isMatch) {
+    //           console.log("Password doesn't match!")
+    //         } else {
+    //           console.log("Password matches!")
+    //         }
+    //       })
+    // }
 };
 
 
