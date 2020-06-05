@@ -6,7 +6,7 @@
                 button.close(type='button' data-dismiss='modal' aria-label='Close')
                     span.modal-title(aria-hidden='true') &times;
             .modal-body
-                form(action='/users/create' method='POST')
+                form(action='/createUser' method='POST')
                     .row
                         .col
                             label(for='emri') Emri
@@ -58,16 +58,16 @@
                             input.form-control(type='text'  name='nationality')
                     .row
                         .col
-                            label(for='eksperienca') Eksperienca
-                            input.form-control(type='text'  name='experience' )
-                        .col
                             label(for='edukimi') Edukimi
                             input.form-control(type='text'  name='education')
+                        .col
+                                label(for='previous_years_experience') Vitet e eksperiences
+                                input.form-control(type='text'  name='previous_years_experience' )    
                     .row
                         .col
-                            label(for='previous_years_experience') Eksperienca
-                            input.form-control(type='textfoeld'  name='previous_years_experience' )
+                            label(for='eksperienca') Eksperienca
+                            input.form-control(type='textfield'  name='experience' )
 
-            .modal-footer
-                button.btn#useSave(type='submit' style='background-color:#980709; color:white') Save
-                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
+                    .modal-footer
+                        button.btn#useSave(type='Submit' style='background-color:#980709; color:white') Save
+                        button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close

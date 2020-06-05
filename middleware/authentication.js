@@ -20,26 +20,32 @@ var Auth = {
         next();
     },
     createSaltedPassword: function (password) {
-        bcrypt.hash(password, saltRounds, function (err, hash) {
+        bcrypt.genSalt(saltRounds, function (err, salt) {
+        if (err) {
+          throw err
+        } else {
+          bcrypt.hash(password, salt, function(err, hash) {
             if (err) {
-                throw err
+              throw err
             } else {
-                console.log(hash);
+              return hash;
+              //$2a$10$FEBywZh8u9M0Cec/0mWep.1kXrwKeiWDba6tdKvDfEBjyePJnDT7K
             }
-        })
-        return hash;
+          })
+        }
+      })
     },
 
     compareSaltedPassword: function (passwordEnteredByUser, hash) {
-        bcrypt.compare(passwordEnteredByUser, hash, function (err, isMatch) {
+        bcrypt.compare(passwordEnteredByUser, hash, function(err, isMatch) {
             if (err) {
-                throw err
+              throw err
             } else if (!isMatch) {
-                console.log("Password doesn't match!")
+              console.log("Password doesn't match!")
             } else {
-                console.log("Password matches!")
+              console.log("Password matches!")
             }
-        })
+          })
     }
 };
 

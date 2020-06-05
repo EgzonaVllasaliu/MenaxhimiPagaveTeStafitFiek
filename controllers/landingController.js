@@ -1,9 +1,7 @@
 exports.landing = function(req, res) {
     // todo pass current user's data through parameters
     // todo get user's role from coockie
-    var result = 2 + 2;
-    console.log(result)
-    res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', result: result });
+    res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave'});
 }
 
 exports.login = function(req, res) {

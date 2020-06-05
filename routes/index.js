@@ -8,7 +8,6 @@ var user_controller = require('../controllers/userController');
 var landing_controller = require('../controllers/landingController')
 
 var user_cont = new user_controller();
-
 /**
  *  GET login page.
  */
@@ -28,5 +27,7 @@ router.get('/index', authentication.is_login, landing_controller.landing);
  * Logout.
  */
 router.get('/logout', user_cont.logout);
+
+router.post('/createUser', user_cont.createUser);
 
 module.exports = router;

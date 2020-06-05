@@ -9,5 +9,5 @@ var user_controller = require('../controllers/userController');
 var user_cont = new user_controller();
 
 router.get('/', user_cont.getUsers);
-router.post('/create', user_cont.createUser);
+router.post('/createUser', user_cont.getUsers);
 module.exports = router;
