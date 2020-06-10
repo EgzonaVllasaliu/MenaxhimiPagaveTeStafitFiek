@@ -7,40 +7,39 @@ div.modal.fade(id = contractid2 data-backdrop="static" tabindex='-1' role='dialo
                     button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='konSave()')
                         span.modal-title(aria-hidden='true') &times;
                 .modal-body
-                    form
-                        .row
-                            .col
-                                label(for='userId') UserId
-                                input.form-control(type='text' id='userId' value=val.user_id name='user_id')
-                            .col
-                                label(for='nrIllogarise') Numri i llogarisë
-                                input.form-control(type='text' id='nrIllogarise' value=val.bank_account_id name='bank_account_id')
-                        .row
-                            .col
-                                label(for='departamenti') Departamenti
-                                input.form-control(type='text' id='departamenti' value=val.department name='department')
-                            .col
-                                label(for='pozita') Pozita
-                                input.form-control(type='text' id='pozita' value=val.position name='position')
-                        .row
-                            .col
-                                label(for='dataEfillimit') Data e fillimit
-                                input.form-control(type='date' id='dataEfillimit' value=val.contract_registration_date name='contract_registration_date')
-                            .col
-                                label(for='dataEperfundimit') Data e përfundimit
-                                input.form-control(type='date' id='dataEperfundimit' value=val.contract_termination_date name='contract_termination_date')
-                        .row
-                            .col
-                                label(for='ditePune') Gjithsejt ditë pune
-                                input.form-control(type='text' id='ditePune' value=val.working_days name='working_days')
-                            .col
-                                label(for='ditePushimi') Gjithsejt ditë pushimi
-                                input.form-control(type='text' id='ditePushimi' value=val.days_off name='days_off')
-                        .row
-                            .col.col-md-6
-                                label(for='pagaBazek') Paga bazë
-                                input.form-control(type='text' id='pagaBazek' value=val.basic_salary name='basic_salary')
-                                input.form-control(type='textfield' name='contract_id' value=val.contract_id style='display: none')
-                        .modal-footer
-                            button.btn#konSave(type='Submit' style='background-color:#980709; color:white') Save
-                            button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
+                    .row
+                        .col
+                            label(for='userId') UserId
+                            input.form-control(type='text' id='userId' value=val.user_id name='user_id')
+                        .col
+                            label(for='nrIllogarise') Numri i llogarisë
+                            input.form-control(type='text' id='nrIllogarise' value=val.bank_account_id name='bank_account_id')
+                    .row
+                        .col
+                            label(for='departamenti') Departamenti
+                            input.form-control(type='text' id='departamenti' value=val.department name='department')
+                        .col
+                            label(for='pozita') Pozita
+                            input.form-control(type='text' id='pozita' value=val.position name='position')
+                    .row
+                        .col
+                            label(for='dataEfillimit') Data e fillimit
+                            input.form-control(type='date' id='dataEfillimit' value=val.contract_registration_date name='contract_registration_date')
+                        .col
+                            label(for='dataEperfundimit') Data e përfundimit
+                            input.form-control(type='date' id='dataEperfundimit' value=val.contract_termination_date name='contract_termination_date')
+                    .row
+                        .col
+                            label(for='ditePune') Gjithsejt ditë pune
+                            input.form-control(type='text' id='ditePune' value=val.working_days name='working_days')
+                        .col
+                            label(for='ditePushimi') Gjithsejt ditë pushimi
+                            input.form-control(type='text' id='ditePushimi' value=val.days_off name='days_off')
+                    .row
+                        .col.col-md-6
+                            label(for='pagaBazek') Paga bazë
+                            input.form-control(type='text' id='pagaBazek' value=val.basic_salary name='basic_salary')
+                            input.form-control(type='textfield' name='contract_id' value=val.contract_id style='display: none')
+                    .modal-footer
+                        button.btn#konSave(type='Submit' style='background-color:#980709; color:white') Save
+                        button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
