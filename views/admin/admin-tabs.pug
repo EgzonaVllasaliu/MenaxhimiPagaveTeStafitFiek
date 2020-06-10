@@ -55,12 +55,12 @@ append head
         .tabinner
             ul.list-group.list-group-flush
                 - var number3 = 0
-                each val in bonuset
+                each val in bonuses
                     li.list-group-item
                         - var bonusesid = '#adminBonusesModal' + number3
                         - var bonusesid2 = 'adminBonusesModal' + number3
                         include admin-bonuset-modal
-                        button.btn(type='button' data-toggle='modal' data-target=bonusesid data-myvar= val)  Bonus #{val}
+                        button.btn(type='button' data-toggle='modal' data-target=bonusesid data-myvar=val)  Bonus #{val.bonus_id}
                     - number3++
     #v-pills-admin-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-diskuto-tab')
         .navbar.little-nav

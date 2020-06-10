@@ -6,10 +6,12 @@ var authentication = require('../middleware/authentication');
 // Require controller modules.
 var user_controller = require('../controllers/userController');
 var contract_controller = require('../controllers/kontrataController');
+var bonus_controller = require('../controllers/bonusController');
 var landing_controller = require('../controllers/landingController')
 
 var user_cont = new user_controller();
 var cont_cont = new contract_controller();
+var bon_cont = new bonus_controller();
 /**
  *  GET login page.
  */
@@ -35,6 +37,9 @@ router.post('/updateUser', user_cont.updateUser);
 
 router.post('/createContract', cont_cont.createContract);
 router.post('/updateContract', cont_cont.updateContract);
+
+router.post('/createBonus', bon_cont.createBonus);
+router.post('/updateBonus', bon_cont.updateBonus);
 
 
 

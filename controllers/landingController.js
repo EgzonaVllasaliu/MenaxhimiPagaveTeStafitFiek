@@ -18,7 +18,14 @@ exports.landing = function(req, res) {
                     throw error
                 }
                 var contracts = results.rows
-                res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',role: role, users: users, contracts:contracts});
+                // res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',role: role, users: users, contracts:contracts});
+                pool.query("SELECT * FROM bonus", (error, results) => {
+                    if (error) {
+                        throw error
+                    }
+                    var bonuses = results.rows
+                    res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',role: role, users: users, contracts:contracts, bonuses:bonuses});
+                })
             })
         })
     }
