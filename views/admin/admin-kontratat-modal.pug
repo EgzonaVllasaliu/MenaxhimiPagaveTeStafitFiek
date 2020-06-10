@@ -1,4 +1,4 @@
-#adminKontrataModal.modal.fade(data-backdrop="static" tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+div.modal.fade(id = contractid2 data-backdrop="static" tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
     .modal-dialog(role='document')
         .modal-content
             .modal-header
@@ -40,7 +40,7 @@
                             label(for='pagaBazek') Paga bazë
                             input.form-control(type='text' id='pagaBazek' value='' disabled='')
 
-            .modal-footer
-                button.btn#konEdit(type='button' style='background-color:#980709; color:white' onclick='konEdit()') Edit
-                button.btn#konSave(type='button' style='background-color:#980709; color:white' disabled='' onclick='konSave()') Save
-                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='konSave()') Close
+                    .modal-footer
+                        button.btn#konEdit(type='button' style='background-color:#980709; color:white' onclick='konEdit()') Edit
+                        button.btn#konSave(type='Submit' style='background-color:#980709; color:white' disabled='' onclick='konSave()') Save
+                        button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='konSave()') Close

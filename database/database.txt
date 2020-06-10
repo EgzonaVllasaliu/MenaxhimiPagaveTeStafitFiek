@@ -4,7 +4,7 @@ CREATE TABLE public.users
     first_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
     last_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
     parent_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL UNIQUE,
     password character varying(50) COLLATE pg_catalog."default" NOT NULL,
     role character varying(50) COLLATE pg_catalog."default" DEFAULT 1,
     personal_number character varying(20) COLLATE pg_catalog."default",

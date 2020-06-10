@@ -29,5 +29,6 @@ router.get('/index', authentication.is_login, landing_controller.landing);
 router.get('/logout', user_cont.logout);
 
 router.post('/createUser', user_cont.createUser);
+router.post('/updateUser', user_cont.updateUser)
 
 module.exports = router;

@@ -1,4 +1,4 @@
-- var objKontrata
+
 #v-pills-tabContent.tab-content
     #v-pills-user-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-user-home-tab')
         .navbar.little-nav
@@ -14,6 +14,7 @@
         .tabinner
             ul.list-group.list-group-flush
                 each val in kontratat
+                    - var objKontrata
                     - objKontrata = val
                     li.list-group-item
                         button.btn(type='button' data-toggle='modal' data-target='#userKontrataModal' data-myvar='#{objKontrata}')  Kontrata #{objKontrata.id}
