@@ -5,9 +5,11 @@ var authentication = require('../middleware/authentication');
 
 // Require controller modules.
 var user_controller = require('../controllers/userController');
+var contract_controller = require('../controllers/kontrataController');
 var landing_controller = require('../controllers/landingController')
 
 var user_cont = new user_controller();
+var cont_cont = new contract_controller();
 /**
  *  GET login page.
  */
@@ -29,6 +31,11 @@ router.get('/index', authentication.is_login, landing_controller.landing);
 router.get('/logout', user_cont.logout);
 
 router.post('/createUser', user_cont.createUser);
-router.post('/updateUser', user_cont.updateUser)
+router.post('/updateUser', user_cont.updateUser);
+
+router.post('/createContract', cont_cont.createContract);
+router.post('/updateContract', cont_cont.updateContract);
+
+
 
 module.exports = router;

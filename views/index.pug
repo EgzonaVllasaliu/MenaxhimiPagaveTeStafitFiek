@@ -13,8 +13,7 @@ append head
 
 block content
 
-  if role === '1' 
-    - var kontratat = [{id: '1', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'700'}, {id: '2', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'600'}, {id: '3', nrIllogarise:'111', departamenti: 'kompjuterike', pozita:'profesor', fillon:'1.1.2001', perfundon:'5.5.2005', ditePune: '7', ditePushimi:'5', pagaBaze:'500'}]
+    if role === '1' 
     - var pagat = [3, 4, 5]
     .container-fluid(style='padding: 0')
       nav.navbar.navbar-custom
@@ -32,7 +31,6 @@ block content
       include user/user-kontratat-modal
       include user/user-paga-modal
   else 
-    - var kontratat = [0, 1, 2]
     - var pagat = [3, 4, 5]
     - var bonuset = [1, 1, 1]
     .container-fluid(style='padding: 0')

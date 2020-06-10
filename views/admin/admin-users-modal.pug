@@ -2,66 +2,65 @@ div.modal.fade(id = userid2 data-backdrop="static" tabindex='-1' role='dialog' a
     .modal-dialog(role='document')
         .modal-content
             form(action='/updateUser' method='POST')
-            .modal-header
-                h5#exampleModalLabel.modal-title #{val.first_name} #{val.last_name}
-                button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='useSave()')
-                    span.modal-title(aria-hidden='true') &times;
-            .modal-body
-                .row
-                    .col
-                        label(for='emri') Emri
-                        input.form-control(type='text' id='emri' name='first_name2' value=val.first_name disabled='')
-                    .col
-                        label(for='mbiemri') Mbiemri
-                        input.form-control(type='text' id='mbiemri' name='last_name2' value=val.last_name disabled='')
-                .row
-                    .col
-                        label(for='emriIprindit') Emri i prindit
-                        input.form-control(type='text' id='emriIprindit' name='parent_name2' value=val.parent_name disabled='')
-                    .col
-                        label(for='nrPersonal') Numri Personal
-                        input.form-control(type='text' id='nrPersonal' name='personal_number2' value=val.personal_number disabled='')
-                .row
-                    .col
-                        label(for='dataElindjes') Data e Lindjes
-                        input.form-control(type='text' id='dataElindjes' name='birthdate2' value=val.birthdate disabled='')
-                    .col
-                        label(for='vendiIlindjes') Vendi i lindjes
-                        input.form-control(type='text' id='vendiIlindjes' name='birthplace2' value=val.birthplace disabled='')
-                .row
-                    .col
-                        label(for='adresa') Adresa
-                        input.form-control(type='text' id='adresa' name='address2' value=val.address disabled='')
-                    .col
-                        label(for='telefoni') Telefoni
-                        input.form-control(type='text' id='telefoni' name='mobile2' value=val.mobile disabled='')
-                .row
-                    .col
-                        label(for='telZyre') Telefoni/Zyre
-                        input.form-control(type='text' id='telZyre' name='phone2' value=val.phone disabled='')
-                    .col
-                        label(for='email') Email
-                        input.form-control(type='text' id='email' name='email2' value=val.email disabled='')
-                .row
-                    .col
-                        label(for='gjinia') Gjinia
-                        input.form-control(type='text' id='gjinia' name='gender2' value=val.gender disabled='')
-                    .col
-                        label(for='shtetesia') Shtatesia
-                        input.form-control(type='text' id='shtetesia' name='nationality2' value=val.nationality disabled='')
-                .row
-                    .col
-                        label(for='edukimi') Edukimi
-                        input.form-control(type='text' id='edukimi' name='education2' value=val.education disabled='')
-                    .col
-                        label(for='previous_years_experience') Vitet e eksperiences
-                        input.form-control(type='text' id='previous_years_experience' name='previous_years_experiences2' value=val.previous_years_experience disabled='')
-                .row
-                    .col
-                        label(for='eksperienca') Eksperienca
-                        input.form-control(type='textfield' id='eksperienca' name='experience2' value=val.experience disabled='')
-                        input.form-control(type='textfield' name='username2' value=val.username style='display: none')
-            .modal-footer
-                button.btn#useEdit(type='button' style='background-color:#980709; color:white' onclick='useEdit()') Edit
-                button.btn#useSave(type='Submit' style='background-color:#980709; color:white' disabled='' onclick='useSave()') Save
-                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='useSave()') Close
+                .modal-header
+                    h5#exampleModalLabel.modal-title #{val.first_name} #{val.last_name}
+                    button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='useSave()')
+                        span.modal-title(aria-hidden='true') &times;
+                .modal-body
+                    .row
+                        .col
+                            label(for='emri') Emri
+                            input.form-control(type='text' id='emri' name='first_name' value=val.first_name )
+                        .col
+                            label(for='mbiemri') Mbiemri
+                            input.form-control(type='text' id='mbiemri' name='last_name' value=val.last_name )
+                    .row
+                        .col
+                            label(for='emriIprindit') Emri i prindit
+                            input.form-control(type='text' id='emriIprindit' name='parent_name' value=val.parent_name )
+                        .col
+                            label(for='nrPersonal') Numri Personal
+                            input.form-control(type='text' id='nrPersonal' name='personal_number' value=val.personal_number )
+                    .row
+                        .col
+                            label(for='dataElindjes') Data e Lindjes
+                            input.form-control(type='date' id='dataElindjes' name='birthdate' value=val.birthdate )
+                        .col
+                            label(for='vendiIlindjes') Vendi i lindjes
+                            input.form-control(type='text' id='vendiIlindjes' name='birthplace' value=val.birthplace )
+                    .row
+                        .col
+                            label(for='adresa') Adresa
+                            input.form-control(type='text' id='adresa' name='address' value=val.address )
+                        .col
+                            label(for='telefoni') Telefoni
+                            input.form-control(type='text' id='telefoni' name='mobile' value=val.mobile )
+                    .row
+                        .col
+                            label(for='telZyre') Telefoni/Zyre
+                            input.form-control(type='text' id='telZyre' name='phone' value=val.phone )
+                        .col
+                            label(for='email') Email
+                            input.form-control(type='text' id='email' name='email' value=val.email )
+                    .row
+                        .col
+                            label(for='gjinia') Gjinia
+                            input.form-control(type='text' id='gjinia' name='gender' value=val.gender )
+                        .col
+                            label(for='shtetesia') Shtatesia
+                            input.form-control(type='text' id='shtetesia' name='nationality' value=val.nationality )
+                    .row
+                        .col
+                            label(for='edukimi') Edukimi
+                            input.form-control(type='text' id='edukimi' name='education' value=val.education )
+                        .col
+                            label(for='previous_years_experience') Vitet e eksperiences
+                            input.form-control(type='text' id='previous_years_experience' name='previous_years_experience' value=val.previous_years_experience )
+                    .row
+                        .col
+                            label(for='eksperienca') Eksperienca
+                            input.form-control(type='textfield' id='eksperienca' name='experience' value=val.experience )
+                            input.form-control(type='textfield' name='username' value=val.username style='display: none')
+                .modal-footer
+                    button.btn#useSave(type='Submit' style='background-color:#980709; color:white') Save
+                    button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close
