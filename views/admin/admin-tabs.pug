@@ -1,3 +1,6 @@
+append head
+  script(src='/javascripts/socket.js')
+  script(src='/javascripts/chat.js')
 #v-pills-tabContent.tab-content
     #v-pills-admin-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-admin-home-tab')
         .navbar.little-nav
@@ -30,7 +33,7 @@
                 each val in pagat
                     li.list-group-item
                         button.btn(type='button' data-toggle='modal' data-target='#adminPagaModal')  Paga #{val}
-    #v-pills-admin-bonuset.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-bonuset-tab')
+    #v-pills-admin-bonuset.tab-pane.fade(role='tabpanel' aria-labelled  by='v-pills-admin-bonuset-tab')
         .navbar.little-nav
             p Bonuset admin
         .tabinner
@@ -38,7 +41,21 @@
                 each val in bonuset
                     li.list-group-item
                         button.btn(type='button' data-toggle='modal' data-target='#adminBonusModal')  Bonus #{val}
-    #v-pills-admin-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-diskuto-tab')
+    #v-pills-admin-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-diskuto-tab' data-target='#adminDiskutoModal')
         .navbar.little-nav
             p Diskuto admin
         .tabinner
+            #p.chat_window
+                ul#messages1.messages
+                .bottom_wrapper.clearfix
+                    i#typing
+                    form#form1
+                        .message_input_wrapper
+                            input#message1.message_input(placeholder='Type your message here...')
+                        button.send_message
+                            | Send
+            //- script(src='/javascripts/socket.js')
+            //- //- script(src='https://code.jquery.com/jquery-1.11.1.min.js')
+            //- //- script(src='https://cdn.jsdelivr.net/gh/rexeze/formatTimeStamp/src/index-cdn.js')
+            //- script(src='/javascripts/chat.js')
+                
