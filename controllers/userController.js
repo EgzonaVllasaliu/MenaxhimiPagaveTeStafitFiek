@@ -62,7 +62,7 @@ class UserController {
             if (error) {
                 throw error
             }
-            user = results.rows
+            var user = results.rows
             res.redirect('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', user: user});
         })
     }
@@ -81,21 +81,18 @@ class UserController {
             res.redirect('/index')
         })
     }
-    getId(request, response) {
-        var id = request.params.id;
-        console.log(id)
-        
-        pool.query("SELECT $1::text as id", [id], (error, results) => {
+
+    // todo update a user
+    updateUser(req,res){
+        const { first_name2, last_name2, parent_name2, personal_number2, birthdate2, birthplace2, address2, mobile2, phone2, email2, gender2, nationality2, experience2, education2, previous_years_experience2, username2} = req.body
+
+        pool.query("UPDATE users SET first_name='$1', last_name='$2', parent_name='$3', personal_number='$4', birthdate='$5', birthplace='$6', address='$7', mobile='$8', phone='$9', email='$10', gender='$11', education='$12', previous_years_experience='$13', experience='$14', nationality='$15') WHERE username='$16'", [first_name2, last_name2, parent_name2, personal_number2, birthdate2, birthplace2, address2, mobile2, phone2, email2, gender2, education2, previous_years_experience2, experience2, nationality2, username2], (error, results) => {
             if (error) {
                 throw error
             }
-            var user = results.rows[0]
-            // response.redirect('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', user: user});
-            console.log(user)
+            res.redirect('/index')
         })
-      }
-
-    // todo update a user
+    }
 
     // todo delete a user and its related data
 }

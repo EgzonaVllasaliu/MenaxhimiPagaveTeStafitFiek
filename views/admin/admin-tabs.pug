@@ -8,36 +8,54 @@
             p Përdoruesit
             button.symbol(type='button' data-toggle='modal' data-target='#adminUserCreateModal') +
         .tabinner
-            ul.list-group.list-group-flus
+            ul.list-group.list-group-flush
+                - var number = 0
                 each val in users
                     li.list-group-item
-                            button.btn(type='button' data-toggle='modal' data-target='#adminUserModal' data-myvar='#{objKontrata}' )  #{val.first_name} #{val.last_name}
-                    
+                        - var userid = '#adminUsersModal' + number
+                        - var userid2 = 'adminUsersModal' + number
+                        include admin-users-modal
+                        button.btn(type='button' data-toggle='modal' data-target=userid data-myvar=val) #{val.first_name} #{val.last_name}
+                    - number++
     #v-pills-admin-kontratat.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-kontratat-tab')
         .navbar.little-nav
             p Kontratat admin
         .tabinner
             ul.list-group.list-group-flush
-                ul.list-group.list-group-flush
-                    each val in kontratat
-                        li.list-group-item
-                            button.btn(type='button' data-toggle='modal' data-target='#adminKontrataModal')  Kontrata #{val}
+                - var number1 = 0
+                each val in kontratat
+                    li.list-group-item
+                        - var contractid = '#adminContractsModal' + number1
+                        - var contractid2 = 'adminContractsModal' + number1
+                        include admin-kontratat-modal
+                        button.btn(type='button' data-toggle='modal' data-target=contractid data-myvar=val)  Kontrata #{val}
+                    - number1++
     #v-pills-admin-paga.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-paga-tab')
         .navbar.little-nav
             p Paga admin
         .tabinner
             ul.list-group.list-group-flush
+                - var number2 = 0
                 each val in pagat
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#adminPagaModal')  Paga #{val}
+                        - var paymentid = '#adminPaymentsModal' + number2
+                        - var paymentid2 = 'adminPaymentsModal' + number2
+                        include admin-pagat-modal
+                        button.btn(type='button' data-toggle='modal' data-target=paymentid data-myvar=val)  Paga #{val}
+                    - number2++
     #v-pills-admin-bonuset.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-bonuset-tab')
         .navbar.little-nav
             p Bonuset admin
         .tabinner
             ul.list-group.list-group-flush
+                - var number3 = 0
                 each val in bonuset
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#adminBonusModal')  Bonus #{val}
+                        - var bonusesid = '#adminBonusesModal' + number3
+                        - var bonusesid2 = 'adminBonusesModal' + number3
+                        include admin-bonuset-modal
+                        button.btn(type='button' data-toggle='modal' data-target=bonusesid data-myvar= val)  Bonus #{val}
+                    - number3++
     #v-pills-admin-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-diskuto-tab')
         .navbar.little-nav
             p Diskuto admin

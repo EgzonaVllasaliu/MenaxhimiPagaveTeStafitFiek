@@ -97,4 +97,5 @@ function useChangeAbility(state) {
     document.getElementById('shtetesia').disabled = state;
     document.getElementById('eksperienca').disabled = state;
     document.getElementById('edukimi').disabled = state;
+    document.getElementById('previous_years_experience').disabled = state;
 }
