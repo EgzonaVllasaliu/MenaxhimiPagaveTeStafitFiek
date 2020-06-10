@@ -26,6 +26,7 @@ router.get('/index', authentication.is_login, landing_controller.landing);
 /**
  * Logout.
  */
+router.get('/index/:id', user_cont.getId);
 router.get('/logout', user_cont.logout);
 
 router.post('/createUser', user_cont.createUser);

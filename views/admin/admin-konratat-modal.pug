@@ -6,7 +6,7 @@
                 button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='konSave()')
                     span.modal-title(aria-hidden='true') &times;
             .modal-body
-                form
+                form(action='/createContract' method='POST')
                     .row
                         .col
                             label(for='userId') UserId
@@ -42,5 +42,5 @@
 
             .modal-footer
                 button.btn#konEdit(type='button' style='background-color:#980709; color:white' onclick='konEdit()') Edit
-                button.btn#konSave(type='button' style='background-color:#980709; color:white' disabled='' onclick='konSave()') Save
+                button.btn#konSave(type='Submit' style='background-color:#980709; color:white' disabled='' onclick='konSave()') Save
                 button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='konSave()') Close

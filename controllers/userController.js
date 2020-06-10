@@ -26,7 +26,20 @@ class UserController {
                     req.session.userId = username;
                         // todo check user's role and store it on a cookie
                     var role =  results.rows[0]['role'] 
-                    res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', role: role});
+                    if(role == 1){
+                        res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', role: role});
+                    }else{
+
+                        pool.query("SELECT * FROM users WHERE role='1' ORDER BY user_id ASC", (error, results) => {
+                            if (error) {
+                                throw error
+                            }
+                            var users = results.rows
+                            res.render('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',role: role, users: users});
+                        })
+
+                    }
+                   
                 }else{
                     message = 'Nuk e keni shkruar përdoruesin ose fjalëkalimin e saktë!';
                     res.render('login', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', message: message });
@@ -49,8 +62,8 @@ class UserController {
             if (error) {
                 throw error
             }
-            console.log(results.rows[0]['username'])
-            res.status(200).json(results.rows)
+            user = results.rows
+            res.redirect('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', user: user});
         })
     }
 
@@ -68,6 +81,19 @@ class UserController {
             res.redirect('/index')
         })
     }
+    getId(request, response) {
+        var id = request.params.id;
+        console.log(id)
+        
+        pool.query("SELECT $1::text as id", [id], (error, results) => {
+            if (error) {
+                throw error
+            }
+            var user = results.rows[0]
+            // response.redirect('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', user: user});
+            console.log(user)
+        })
+      }
 
     // todo update a user
 

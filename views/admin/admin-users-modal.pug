@@ -9,8 +9,10 @@
                 form
                     .row
                         .col
-                            label(for='emri') Emri
-                            input.form-control(type='text' id='emri' value='' disabled='')
+                        each val in users
+                            
+                                label(for='emri') Emri
+                                input.form-control(type='text' id='emri' value=val.first_name disabled='') 
                         .col
                             label(for='mbiemri') Mbiemri
                             input.form-control(type='text' id='mbiemri' value='' disabled='')

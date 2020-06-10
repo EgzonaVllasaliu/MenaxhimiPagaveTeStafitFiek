@@ -8,11 +8,11 @@
             p Përdoruesit
             button.symbol(type='button' data-toggle='modal' data-target='#adminUserCreateModal') +
         .tabinner
-            ul.list-group.list-group-flush
+            ul.list-group.list-group-flus
                 each val in users
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#adminUserModal')  User #{val}
-
+                            button.btn(type='button' data-toggle='modal' data-target='#adminUserModal' data-myvar='#{objKontrata}' )  #{val.first_name} #{val.last_name}
+                    
     #v-pills-admin-kontratat.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-kontratat-tab')
         .navbar.little-nav
             p Kontratat admin
