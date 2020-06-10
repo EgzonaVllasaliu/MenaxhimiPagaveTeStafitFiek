@@ -1,4 +1,3 @@
-
 #v-pills-tabContent.tab-content
     #v-pills-user-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-user-home-tab')
         .navbar.little-nav
@@ -13,11 +12,9 @@
             p Kontratat
         .tabinner
             ul.list-group.list-group-flush
-                each val in kontratat
-                    - var objKontrata
-                    - objKontrata = val
+                each objKontrata in kontratat
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#userKontrataModal' data-myvar='#{objKontrata}')  Kontrata #{objKontrata.id}
+                        button.btn(type='button' data-toggle='modal' data-target='#userKontrataModal' data-myvar="#{objKontrata}")  Kontrata #{objKontrata.id}
     #v-pills-user-paga.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-paga-tab')
         .navbar.little-nav
             p Paga
