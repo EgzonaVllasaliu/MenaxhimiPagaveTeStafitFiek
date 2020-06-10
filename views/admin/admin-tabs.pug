@@ -41,8 +41,6 @@ append head
                 - var number2 = 0
                 each val in pagat
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#adminPagaModal')  Paga #{val}
-    #v-pills-admin-bonuset.tab-pane.fade(role='tabpanel' aria-labelled  by='v-pills-admin-bonuset-tab')
                         - var paymentid = '#adminPaymentsModal' + number2
                         - var paymentid2 = 'adminPaymentsModal' + number2
                         include admin-pagat-modal
@@ -56,7 +54,6 @@ append head
                 - var number3 = 0
                 each val in bonuset
                     li.list-group-item
-   
                         - var bonusesid = '#adminBonusesModal' + number3
                         - var bonusesid2 = 'adminBonusesModal' + number3
                         include admin-bonuset-modal
