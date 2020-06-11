@@ -2,46 +2,41 @@ div.modal.fade(id = paymentid2 data-backdrop="static" tabindex='-1' role='dialog
     .modal-dialog(role='document')
         .modal-content
             .modal-header
-                h5#exampleModalLabel.modal-title Paga
+                h5#exampleModalLabel.modal-title Paga #{val.salary_id}
                 button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='pagClose()')
                     span.modal-title(aria-hidden='true') &times;
             .modal-body
                 .row
                     .col
                         label(for='pagaBruto') Paga bruto
-                        input.form-control(type='text' id='pagaBruto' value='' disabled='')
+                        input.form-control(type='text' id='pagaBruto' value=brutoSalary[0].llogpagabruto disabled='')
                     .col
                         label(for='pagaBaze') Paga bazë
-                        input.form-control(type='text' id='pagaBaze' value='' disabled='')
+                        input.form-control(type='text' id='pagaBaze' value=contracts[0].basic_salary disabled='')
                 .row
                     .col
                         label(for='pervoja') Përvoja
-                        input.form-control(type='text' id='pervoja' value='' disabled='')
+                        input.form-control(type='text' id='pervoja' value=users[0].previous_years_experience disabled='')
                     .col
                         label(for='kontributi') Kontributi i punëtorit
-                        input.form-control(type='text' id='kontributi' value='' disabled='')
+                        input.form-control(type='text' id='kontributi' value=salarydetails[0].employee_contributions disabled='')
                 .row
                     .col
                         label(for='transporti') Transporti
-                        input.form-control(type='text' id='transporti' value='' disabled='')
+                        input.form-control(type='text' id='transporti' value=salarydetails[0].transport disabled='')
                     .col
                         label(for='shujta') Shujta
-                        input.form-control(type='text' id='shujta' value='' disabled='')
+                        input.form-control(type='text' id='shujta' value=salarydetails[0].meals disabled='')
                 .row
                     .col
                         label(for='sigurimi') Sigurimi
-                        input.form-control(type='text' id='sigurimi' value='' disabled='')
+                        input.form-control(type='text' id='sigurimi' value=salarydetails[0].insurance disabled='')
                     .col
                         label(for='sindikata') Sindikata
-                        input.form-control(type='text' id='sindikata' value='' disabled='')
+                        input.form-control(type='text' id='sindikata' value=salarydetails[0].syndicate disabled='')
                 .row
                     .col
                         label(for='tatimi') Tatimi
-                        input.form-control(type='text' id='tatimi' value='' disabled='')
-                    .col
-                        label(for='pagaNeto') Paga neto
-                        input.form-control(type='text' id='pagaNeto' value='' disabled='')
+                        input.form-control(type='text' id='tatimi' value=salarydetails[0].tax disabled='')
             .modal-footer
-                button.btn#pagEdit(type='button' style='background-color:#980709; color:white' onclick='pagEdit()') Edit
-                button.btn#pagSave(type='button' style='background-color:#980709; color:white' disabled='' onclick='pagSave()') Save
                 button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white' onclick='pagSave()') Close

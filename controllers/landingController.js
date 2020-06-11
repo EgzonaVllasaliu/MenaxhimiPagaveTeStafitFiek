@@ -47,13 +47,35 @@ exports.landing = function (req, res) {
                         throw error
                     }
                     var bonuses = results.rows
-                    res.render('index', {
-                        title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',
-                        role: role,
-                        users: users,
-                        contracts: contracts,
-                        bonuses: bonuses
-                    });
+                    pool.query('SELECT * FROM salarydetails',(error, results) => {
+                        if (error) {
+                          throw error
+                        }
+                            var salarydetails = results.rows
+                            pool.query(`SELECT  LlogBonuset (${bonuses[0]['extra_hours']}, ${bonuses[0]['price_extra_hours']}, ${bonuses[0]['work_hours']}, ${bonuses[0]['price_work_hours']}, ${bonuses[0]['bachelor_thesis']}, ${bonuses[0]['price_bachelor_thesis']}, ${bonuses[0]['master_thesis']}, ${bonuses[0]['price_master_thesis']}, ${bonuses[0]['master_exam']}, ${bonuses[0]['price_master_exam']})`, (error, results) => {
+                                if (error) {
+                                    throw error
+                                }
+                                var calcBonuses = results.rows
+                                pool.query(`SELECT llogpagabruto(${contracts[0]['basic_salary']}, ${users[0]['previous_years_experience']}, ${calcBonuses[0]['llogbonuset']}, ${salarydetails[0]['meals']}, ${salarydetails[0]['transport']})`, (error, results) => {
+                                    if (error) {
+                                        throw error
+                                    }
+                                    var brutoSalary = results.rows
+                                    res.render('index', {
+                                        title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',
+                                        role: role,
+                                        users: users,
+                                        contracts: contracts,
+                                        bonuses: bonuses, 
+                                        brutoSalary: brutoSalary,
+                                        salarydetails: salarydetails
+                                    });
+                                })
+                            })
+                        }
+                    )
+
                 })
             })
         })

@@ -41,12 +41,12 @@ append head
         .tabinner
             ul.list-group.list-group-flush
                 - var number2 = 0
-                each val in pagat
+                each val in salarydetails
                     li.list-group-item
                         - var paymentid = '#adminPaymentsModal' + number2
                         - var paymentid2 = 'adminPaymentsModal' + number2
                         include admin-pagat-modal
-                        button.btn(type='button' data-toggle='modal' data-target=paymentid data-myvar=val)  Paga #{val}
+                        button.btn(type='button' data-toggle='modal' data-target=paymentid data-myvar=val)  Paga #{val.salary_id}
                     - number2++
     #v-pills-admin-bonuset.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-bonuset-tab')
         .navbar.little-nav
