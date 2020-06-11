@@ -42,5 +42,4 @@ router.post('/createBonus', bon_cont.createBonus);
 router.post('/updateBonus', bon_cont.updateBonus);
 
 
-
 module.exports = router;

@@ -17,8 +17,10 @@ class UserController {
                 }
                 else if(username == results.rows[0]['username'] && password == results.rows[0]['password']){
                     req.session.userId = username;
-                    var role =  results.rows[0]['role'] 
-                    req.session.role = role
+                    var role =  results.rows[0]['role'];
+                    var  user_id = results.rows[0]['user_id'];
+                    req.session.role = role;
+                    req.session.user = user_id;
                     res.redirect('/')                   
                 }else{
                     message = 'Nuk e keni shkruar përdoruesin ose fjalëkalimin e saktë!';

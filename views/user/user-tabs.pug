@@ -7,22 +7,79 @@
         .navbar.little-nav
             p Profili
         .tabinner
+            each val in useri
+                p
+                    b Emri:
+                    span #{val.first_name}
+                    b Mbiemri:
+                    span #{val.last_name}
+                    b Emri i prindit:
+                    span #{val.parent_name}
+                p
+                    b Username:
+                    span #{val.username}
+                    b Numri personale:
+                    span #{val.personal_number}
+                    b Gjinia:
+                    span #{val.gender}
+                p
+                    b Ditëlindja:
+                    span #{val.birthdate}
+                    b Vendlindja:
+                    span #{val.birthplace}
+                    b Shtetësia:
+                    span #{val.nationality}
+                p
+                    b Adresa:
+                    span #{val.address}
+                    b Email:
+                    span #{val.email}
+                p
+                    b Telefoni:
+                    span #{val.mobile}
+                    b Telefoni fix:
+                    span #{val.phone}
+                p
+                    b Edukimi:
+                    span #{val.education}
+                    b Vitet e eksperiencës:
+                    span #{val.previous_years_experience}
+                    b Eksperienca:
+                    span #{val.experience}
     #v-pills-user-kontratat.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-kontratat-tab')
         .navbar.little-nav
             p Kontratat
         .tabinner
             ul.list-group.list-group-flush
-                each objKontrata in kontratat
+                - var number1 = 0
+                each val in contracts
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#userKontrataModal' data-myvar="#{objKontrata}")  Kontrata #{objKontrata.id}
+                        - var contractid = '#userContractsModal' + number1
+                        - var contractid2 = 'userContractsModal' + number1
+                        include user-kontratat-modal
+                        button.btn(type='button' data-toggle='modal' data-target=contractid data-myvar=val)  Kontrata #{val.contract_id}
+                    - number1++
     #v-pills-user-paga.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-paga-tab')
         .navbar.little-nav
             p Paga
         .tabinner
             ul.list-group.list-group-flush
-                each val in pagat
+                // each val in payments
+                //     li.list-group-item
+                //         button.btn(type='button' data-toggle='modal' data-target='#userPagaModal' ata-myvar=val)  Paga
+    #v-pills-user-bonuset.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-bonuset-tab')
+        .navbar.little-nav
+            p Bonuset
+        .tabinner
+            ul.list-group.list-group-flush
+                - var number3 = 0
+                each val in bonuses
                     li.list-group-item
-                        button.btn(type='button' data-toggle='modal' data-target='#userPagaModal')  Paga #{val}
+                        - var bonusesid = '#adminBonusesModal' + number3
+                        - var bonusesid2 = 'adminBonusesModal' + number3
+                        include user-bonuset-modal
+                        button.btn(type='button' data-toggle='modal' data-target=bonusesid data-myvar=val)  Bonus #{val.bonus_id}
+                    - number3++
     #v-pills-user-diskuto.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-user-diskuto-tab')
         .navbar.little-nav
             p Diskuto

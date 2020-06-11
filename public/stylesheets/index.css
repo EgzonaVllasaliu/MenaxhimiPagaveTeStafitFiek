@@ -97,6 +97,7 @@
 #v-pills-user-profile-tab.active,
 #v-pills-user-kontratat-tab.active,
 #v-pills-user-paga-tab.active,
+#v-pills-user-bonuset-tab.active,
 #v-pills-user-diskuto-tab.active {
     background-color: #920709;
     color: white;
@@ -112,6 +113,7 @@
 #v-pills-user-profile-tab,
 #v-pills-user-kontratat-tab,
 #v-pills-user-paga-tab,
+#v-pills-user-bonuset-tab,
 #v-pills-user-diskuto-tab {
     color: #920709;
 }

@@ -1,0 +1,20 @@
+div.modal.fade(id = bonusesid2 tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#exampleModalLabel.modal-title Bonus #{val.bonus_id}
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span.modal-title(aria-hidden='true') &times;
+            .modal-body
+                p Orë shtese: #{val.extra_hours}
+                p Çmimi për orë shtesë: #{val.price_extra_hours}
+                p Orë pune: #{val.work_hours}
+                p Çmimi për orë pune: #{val.price_work_hours}
+                p Tema të diplomës: #{val.bachelor_thesis}
+                p Çmimi për temë diplome: #{val.price_bachelor_thesis}
+                p Tema të diplomës master: #{val.master_thesis}
+                p Çmimi për temë diplome master: #{val.price_master_thesis}
+                p Provime master: #{val.master_exam}
+                p Çmimi për provim master: #{val.price_master_exam}
+            .modal-footer
+                button.btn(type='button' data-dismiss='modal' style='background-color:#980709; color:white') Close

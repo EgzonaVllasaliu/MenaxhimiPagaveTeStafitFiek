@@ -12,9 +12,7 @@ append head
   script(src='/javascripts/chat.js')
 
 block content
-
-  if role === '1' 
-    - var pagat = [3, 4, 5]
+  if role === '1'
     .container-fluid(style='padding: 0')
       nav.navbar.navbar-custom
         .navinner
@@ -28,8 +26,6 @@ block content
             include user/user-nav-menu
           .col-sm-10
             include user/user-tabs
-      include user/user-kontratat-modal
-      include user/user-paga-modal
   else 
     - var pagat = [3, 4, 5]
     .container-fluid(style='padding: 0')
