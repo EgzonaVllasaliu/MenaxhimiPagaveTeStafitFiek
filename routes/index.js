@@ -8,10 +8,12 @@ var user_controller = require('../controllers/userController');
 var contract_controller = require('../controllers/kontrataController');
 var bonus_controller = require('../controllers/bonusController');
 var landing_controller = require('../controllers/landingController')
+var chat_controller = require('../controllers/chatController')
 
 var user_cont = new user_controller();
 var cont_cont = new contract_controller();
 var bon_cont = new bonus_controller();
+var chat_cont = new chat_controller();
 /**
  *  GET login page.
  */
@@ -40,28 +42,9 @@ router.post('/updateContract', cont_cont.updateContract);
 
 router.post('/createBonus', bon_cont.createBonus);
 router.post('/updateBonus', bon_cont.updateBonus);
-//
 
-// const bodyParser = require("body-parser");
-// const connectdb = require("../database/dbConnection");
-const Chats = require("./../models/Chat");
+router.post('/createChat', chat_cont.saveChat);
+router.get('/getChat', chat_cont.getChat);
 
-// router.get('/index', res, next);
-
-
-// const router = express.Router();
-
-// router.route("/index").get((req, res, next) => {
-//   res.setHeader("Content-Type", "application/json");
-//   res.statusCode = 200;
-// // per databaze
-//   // connectdb.then(db => {
-//   //   let data = Chats.find({ message: "Anonymous" });
-//   //   Chats.find({}).then(chat => {
-//   //     res.json(chat);
-//   //   });
-//   // });
-// });
-//
 
 module.exports = router;

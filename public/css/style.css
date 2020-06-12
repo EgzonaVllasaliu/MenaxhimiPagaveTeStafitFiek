@@ -128,7 +128,7 @@ body {
   width: calc(80% - 25px);
   position: relative;
   padding-left: 10px;
-  margin-left: -15%;
+  margin-left: -12%;
 }
 .bottom_wrapper .message_input_wrapper .message_input {
   border: none;
@@ -141,7 +141,7 @@ body {
   background-color: #f8f8f8 ;
 }
 .bottom_wrapper .send_message {
-  width: 25%;
+  width: 15%;
   height: 25px;
   display: inline-block;
   border-radius: 50px;
