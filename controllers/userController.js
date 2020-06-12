@@ -36,16 +36,6 @@ class UserController {
         res.redirect('/');
     }
 
-    getUsers(req, res) {
-        pool.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
-            if (error) {
-                throw error
-            }
-            var user = results.rows
-            res.redirect('index', { title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave', user: user});
-        })
-    }
-
     createUser(req,res){
         const { first_name, last_name, username, password, parent_name, personal_number, birthdate, birthplace, address, mobile, phone, email, gender, nationality, experience, education, previous_years_experience } = req.body
        
