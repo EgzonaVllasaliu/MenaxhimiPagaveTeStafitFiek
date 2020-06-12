@@ -46,19 +46,22 @@ router.post('/updateBonus', bon_cont.updateBonus);
 // const connectdb = require("../database/dbConnection");
 const Chats = require("./../models/Chat");
 
+// router.get('/index', res, next);
+
+
 // const router = express.Router();
 
-router.route("/").get((req, res, next) => {
-  res.setHeader("Content-Type", "application/json");
-  res.statusCode = 200;
-
-  connectdb.then(db => {
-    let data = Chats.find({ message: "Anonymous" });
-    Chats.find({}).then(chat => {
-      res.json(chat);
-    });
-  });
-});
+// router.route("/index").get((req, res, next) => {
+//   res.setHeader("Content-Type", "application/json");
+//   res.statusCode = 200;
+// // per databaze
+//   // connectdb.then(db => {
+//   //   let data = Chats.find({ message: "Anonymous" });
+//   //   Chats.find({}).then(chat => {
+//   //     res.json(chat);
+//   //   });
+//   // });
+// });
 //
 
 module.exports = router;
