@@ -10,8 +10,8 @@ var debug = require('debug')('semp:server');
 const express = require("express");
 // const app = express();
 const bodyParser = require("body-parser");
-const chatRouter = require("../routes/chatroute");
-// const http = require("http").Server(app);
+// const chatRouter = require("../routes/chatroute");
+const http = require("http").Server(app);
 
 // require the socket.io module
 const io = require("socket.io");
@@ -27,7 +27,6 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-const http = require("http").Server(app);
 // var server = http.createServer(app);
 
 /**
@@ -93,7 +92,7 @@ function onError(error) {
 app.use(bodyParser.json());
 
 //routes
-app.use("/Chats", chatRouter);
+// app.use("/Chats", chatRouter);
 
 //set the express.static middleware
 app.use(express.static(__dirname + "/public"));

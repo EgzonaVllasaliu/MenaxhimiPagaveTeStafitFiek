@@ -40,6 +40,25 @@ router.post('/updateContract', cont_cont.updateContract);
 
 router.post('/createBonus', bon_cont.createBonus);
 router.post('/updateBonus', bon_cont.updateBonus);
+//
 
+// const bodyParser = require("body-parser");
+// const connectdb = require("../database/dbConnection");
+const Chats = require("./../models/Chat");
+
+// const router = express.Router();
+
+router.route("/").get((req, res, next) => {
+  res.setHeader("Content-Type", "application/json");
+  res.statusCode = 200;
+
+  connectdb.then(db => {
+    let data = Chats.find({ message: "Anonymous" });
+    Chats.find({}).then(chat => {
+      res.json(chat);
+    });
+  });
+});
+//
 
 module.exports = router;
