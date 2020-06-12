@@ -1,4 +1,5 @@
 const { pool } = require('../database/dbConnection')
+var moment = require('moment');
 
 class chatController {
 
@@ -14,13 +15,14 @@ class chatController {
     }
 
     saveChat(req,res){
-        const { Sender,message} = req.body
+        const { sender,message} = req.body
        
-        pool.query('INSERT INTO chat (Sender,message,timestamps) VALUES ($1, $2, $3)',["sender",message,Date.now()], (error) => {
+        pool.query('INSERT INTO chat (Sender,message,timestamps) VALUES ($1, $2, $3)',[sender,message,moment(Date.now()).format('MM/DD/YYYY')], (error) => {
             if (error) {
                 throw error
             }
-            console.log("Inserted")
+            console.log("inserted")
+            res.render('/')
         })
     }
 }

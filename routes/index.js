@@ -43,8 +43,12 @@ router.post('/updateContract', cont_cont.updateContract);
 router.post('/createBonus', bon_cont.createBonus);
 router.post('/updateBonus', bon_cont.updateBonus);
 
-router.post('/createChat', chat_cont.saveChat);
-router.get('/getChat', chat_cont.getChat);
+router.post('/adminChat', chat_cont.saveChat);
+// router.post('/adminChat', chat_cont.getChat);
+
+
+router.post('/userChat', chat_cont.saveChat);
+// router.post('/userChat', chat_cont.getChat);
 
 
 module.exports = router;

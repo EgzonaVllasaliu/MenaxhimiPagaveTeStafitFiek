@@ -1,6 +1,5 @@
 append head
   script(src='/javascripts/socket.js')
-  script(src='/javascripts/chat.js')
 #v-pills-tabContent.tab-content
     #v-pills-admin-home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-admin-home-tab')
         .navbar.little-nav
@@ -67,13 +66,14 @@ append head
             p Diskuto admin
         .tabinner
             .chat_window
-                ul#messages.messages(value=val.message)
+                ul#messages.messages
                 .bottom_wrapper.clearfix
                     i#typing
-                    form#form(action='/createChat' method='POST')
+                    form#form(action='/adminChat' method='POST')
                         .message_input_wrapper
-                            input#message.message_input(placeholder='Type your message here...')
-                        button.send_message(type='submit')
+                            input#message.message_input(placeholder='Type your message here...' name='message')
+                            input(name='sender' value='pitja')
+                        button.send_message(type='Submit')
                             | Send
 //funksionalitet i chat                            
 script.
@@ -98,22 +98,7 @@ script.
   messages.appendChild(span).append("by " + "Pranuesi" + ": " + "just now");
   });
   })();
-  (function() {
-  fetch("/createChat")
-  .then(data => {
-  return data.json();
-  })
-  .then(json => {
-  json.map(data => {
-  let li = document.createElement("li");
-  let span = document.createElement("span");
-  messages.appendChild(li).append(data.message);
-  messages
-  .appendChild(span)
-  .append("by " + data.sender + ": " + formatTimeAgo(data.createdAt));
-  });
-  });
-  })();
+  
 link(href='/css/style.css' type='text/css' rel='stylesheet')
 script(src='/javascripts/socket.js')
 script(src='https://code.jquery.com/jquery-1.11.1.min.js')

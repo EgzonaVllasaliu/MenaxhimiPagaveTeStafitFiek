@@ -123,6 +123,12 @@ CREATE TABLE salaryDetails (
 INSERT INTO salaryDetails VALUES(1, 1 , 1, 1, 46.5, 50, 5, 15, 7, 0.5 );
 SELECT * FROM salaryDetails;
 
+create table chat(
+	sender varchar(200),
+	message varchar(225),
+	timestamps timestamp without time zone 
+)
+
 
 create function LlogBonuset (
       OretShtese decimal(12,2), 

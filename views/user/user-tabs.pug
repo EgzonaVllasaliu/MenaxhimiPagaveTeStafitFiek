@@ -88,9 +88,10 @@
                 ul#messages.messages
                 .bottom_wrapper.clearfix
                     i#typing
-                    form#form(action='/createChat' method='POST')
+                    form#form(action='/userChat' method='GET')
                         .message_input_wrapper
-                            input#message.message_input(placeholder='Type your message here...')
+                            input#message.message_input(placeholder='Type your message here...' name='message')
+                            input(style='display:none' name='sender' values=useri.first_name)
                         button.send_message(type='Submit')
                             | Send
 //funksionalitet i chat                            
