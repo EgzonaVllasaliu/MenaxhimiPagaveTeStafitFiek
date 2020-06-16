@@ -26,12 +26,12 @@ append head
         .tabinner
             ul.list-group.list-group-flush
                 - var number1 = 0
-                each val in contracts
+                each val in details
                     li.list-group-item
                         - var contractid = '#adminContractsModal' + number1
                         - var contractid2 = 'adminContractsModal' + number1
                         include admin-kontratat-modal
-                        button.btn(type='button' data-toggle='modal' data-target=contractid data-myvar=val)  Kontrata #{val.contract_id}
+                        button.btn(type='button' data-toggle='modal' data-target=contractid data-myvar=val)  Kontrata #{val.first_name} #{val.last_name}
                     - number1++
     #v-pills-admin-paga.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-admin-paga-tab')
         .navbar.little-nav

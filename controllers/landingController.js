@@ -47,30 +47,39 @@ exports.landing = function (req, res) {
                         throw error
                     }
                     var bonuses = results.rows
-                    pool.query('SELECT * FROM salarydetails',(error, results) => {
+                    pool.query('SELECT users.user_id, users.first_name,users.last_name, contract.bank_account_id,contract.working_days, contract.days_off, contract.department,contract.position, contract.basic_salary FROM salarydetails INNER JOIN contract ON contract.contract_id = salarydetails.contract_id INNER JOIN USERS ON USERS.user_id = contract.user_id', (error, results) => {
                         if (error) {
-                          throw error
+                            throw error
                         }
-                            var salarydetails = results.rows
-                            pool.query(`SELECT  LlogBonuset (${bonuses[0]['extra_hours']}, ${bonuses[0]['price_extra_hours']}, ${bonuses[0]['work_hours']}, ${bonuses[0]['price_work_hours']}, ${bonuses[0]['bachelor_thesis']}, ${bonuses[0]['price_bachelor_thesis']}, ${bonuses[0]['master_thesis']}, ${bonuses[0]['price_master_thesis']}, ${bonuses[0]['master_exam']}, ${bonuses[0]['price_master_exam']})`, (error, results) => {
-                                if (error) {
-                                    throw error
-                                }
-                                var calcBonuses = results.rows
-                                pool.query(`SELECT llogpagabruto(${contracts[0]['basic_salary']}, ${users[0]['previous_years_experience']}, ${calcBonuses[0]['llogbonuset']}, ${salarydetails[0]['meals']}, ${salarydetails[0]['transport']})`, (error, results) => {
+                        var details = results.rows
+                        pool.query('SELECT * FROM salarydetails',(error, results) => {
+                            if (error) {
+                            throw error
+                            }
+                                var salarydetails = results.rows
+                                pool.query(`SELECT  LlogBonuset (${bonuses[0]['extra_hours']}, ${bonuses[0]['price_extra_hours']}, ${bonuses[0]['work_hours']}, ${bonuses[0]['price_work_hours']}, ${bonuses[0]['bachelor_thesis']}, ${bonuses[0]['price_bachelor_thesis']}, ${bonuses[0]['master_thesis']}, ${bonuses[0]['price_master_thesis']}, ${bonuses[0]['master_exam']}, ${bonuses[0]['price_master_exam']})`, (error, results) => {
                                     if (error) {
                                         throw error
                                     }
-                                    var brutoSalary = results.rows
-                                    res.render('index', {
-                                        title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',
-                                        role: role,
-                                        users: users,
-                                        contracts: contracts,
-                                        bonuses: bonuses, 
-                                        brutoSalary: brutoSalary,
-                                        salarydetails: salarydetails
-                                    });
+                                    var calcBonuses = results.rows
+                                    pool.query(`SELECT llogpagabruto(${contracts[0]['basic_salary']}, ${users[0]['previous_years_experience']}, ${calcBonuses[0]['llogbonuset']}, ${salarydetails[0]['meals']}, ${salarydetails[0]['transport']})`, (error, results) => {
+                                        if (error) {
+                                            throw error
+                                        }
+                                        var brutoSalary = results.rows
+                                        
+                                            res.render('index', {
+                                                title: 'SEMP-Sistemi Elektronik për Menaxhimin e Pagave',
+                                                role: role,
+                                                users: users,
+                                                bonuses: bonuses, 
+                                                contracts: contracts,
+                                                brutoSalary: brutoSalary,
+                                                salarydetails: salarydetails, 
+                                                details: details
+                                            });
+                                    })
+
                                 })
                             })
                         }

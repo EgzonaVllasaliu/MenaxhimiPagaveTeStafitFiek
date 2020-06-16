@@ -3,7 +3,7 @@ div.modal.fade(id = contractid2 data-backdrop="static" tabindex='-1' role='dialo
         .modal-content
             form(action='/updateContract' method='POST')
                 .modal-header
-                    h5#exampleModalLabel.modal-title Kontrata #{val.contract_id}
+                    h5#exampleModalLabel.modal-title Kontrata #{val.first_name} #{val.last_name}
                     button.close(type='button' data-dismiss='modal' aria-label='Close' onclick='konSave()')
                         span.modal-title(aria-hidden='true') &times;
                 .modal-body
