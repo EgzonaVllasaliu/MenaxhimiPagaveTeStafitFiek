@@ -4,7 +4,7 @@ var moment = require('moment');
 class chatController {
 
     getChat(req, res) {
-        console.log("Inserted1")
+        console.log("Received")
         pool.query('SELECT * FROM chat', (error, results) => {
             if (error) {
                 throw error
