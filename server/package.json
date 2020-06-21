@@ -1,0 +1,21 @@
+{
+  "name": "java-6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env-shell DEBUG='fiek-ws' node index.js --port 3030 --host 'localhost'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "debug": "^4.1.1",
+    "uuid": "^7.0.3",
+    "ws": "^7.3.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  },
+  "description": ""
+}

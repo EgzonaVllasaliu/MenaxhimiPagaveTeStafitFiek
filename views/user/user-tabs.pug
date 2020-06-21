@@ -84,39 +84,7 @@
         .navbar.little-nav
             p Diskuto
         .tabinner 
-            head
-            body
-                .container-fluid.h-100
-                    .row.h-100
-                        .col-4.crypto-container
-                            .row
-                                .col-12.crypto-header
-                                    button#ws-crypto.btn.btn-info
-                                        | Subscribe to crypto trades
-                            .col-12.crypto-trades
-                        .col-8.chat-container
-                            .chat-header
-                                form#topic-form.form-inline.mb-0
-                                    .form-group.mr-3
-                                        input#topic-txt.form-control(type='text', placeholder='Chat name')
-                                    .form-group.mr-3
-                                        button#ws-create.btn.btn-dark-blue(type='button') Create
-                                    .form-group.mr-3
-                                        button#ws-sub.btn.btn-info(type='button') Subscribe
-                                    .form-group.mr-3
-                                        button#ws-unsub.btn.btn-dark-blue-inverse(type='button') Unsubscribe
-                                    .form-group
-                                        button#ws-connect.btn.btn-danger(type='button') Connect to WS
-                            .chat-body
-                            .chat-video-container
-                                canvas#self-cam.chat-video
-                                video#chat-video-src.chat-video.d-none(playsinline='', autoplay='')
-                            .chat-footer
-                                form#msg-form.form-inline.mb-0
-                                    input#msg-text.form-control.mr-3(type='text', placeholder='Write your message...')
-                                    button#send-msg.btn.btn-dark-blue.mr-3(type='button') Send
-                                    button#send-video.btn.btn-dark-blue(type='button') Record
-            //- script(src='./script.js')   
+            include user-diskuto-tab
 
 //funksionalitet i chat 
 

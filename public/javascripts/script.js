@@ -38,7 +38,7 @@ let ws = null
 let wsPingInterval = null
 
 const onWsOpen = () => {
-  console.log('Websocket connected to server')
+  alert('Websocket connected to server')
 }
 
 const checkWsOpen = () => {
