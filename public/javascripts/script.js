@@ -2,6 +2,15 @@ const PING_INTERVAL = 10000
 const FPS = 1000 / 60 // 30fps
 let videoRecording = false
 
+// function start(websocketServerLocation){
+//   ws = new WebSocket(websocketServerLocation);
+//   ws.onmessage = function(evt) { alert('message received'); };
+//   ws.onclose = function(){
+//       // Try to reconnect in 5 seconds
+//       setTimeout(function(){start(websocketServerLocation)}, 5000);
+//   };
+// }
+
 const loadSelfCam = () => {
   if (videoRecording) return
   const canvas = document.getElementById('self-cam')
@@ -38,12 +47,12 @@ let ws = null
 let wsPingInterval = null
 
 const onWsOpen = () => {
-  alert('Websocket connected to server')
+  console.log('Websocket connected to server')
 }
 
 const checkWsOpen = () => {
   if (!(ws && ws.readyState === WebSocket.OPEN)) {
-    alert('Ws is not open yet')
+    console.log('Ws is not open yet')
     return false
   }
   return true
@@ -80,7 +89,7 @@ const onWsClose = () => {
   ws.removeEventListener('close', onWsClose)
   ws.removeEventListener('error', onWsError)
 
-  alert('ws closed')
+  console.log('ws closed')
 }
 
 const openWs = () => {
