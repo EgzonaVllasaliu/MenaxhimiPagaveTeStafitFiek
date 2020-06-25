@@ -8,12 +8,10 @@ var user_controller = require('../controllers/userController');
 var contract_controller = require('../controllers/kontrataController');
 var bonus_controller = require('../controllers/bonusController');
 var landing_controller = require('../controllers/landingController')
-var chat_controller = require('../controllers/chatController')
 
 var user_cont = new user_controller();
 var cont_cont = new contract_controller();
 var bon_cont = new bonus_controller();
-var chat_cont = new chat_controller();
 /**
  *  GET login page.
  */

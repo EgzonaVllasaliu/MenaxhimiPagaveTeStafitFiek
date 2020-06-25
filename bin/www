@@ -9,10 +9,8 @@ var debug = require('debug')('semp:server');
 const express = require("express");
 const bodyParser = require("body-parser");
 const http = require("http").Server(app);
-var chat_controller = require('../controllers/chatController');
 
 const io = require("socket.io");
-var chat_cont = new chat_controller();
 
 
 /**
